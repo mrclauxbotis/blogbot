@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0b1020"/>
+  <rect x="70" y="80" width="1060" height="470" rx="20" fill="#121a31" stroke="#2b3d6b"/>
+  <text x="120" y="190" fill="#9cc2ff" font-family="Arial" font-size="32">AI Agents in Production</text>
+  <text x="120" y="250" fill="#e8ecf8" font-family="Arial" font-size="54" font-weight="700">Architecture + Guardrails</text>
+  <text x="120" y="310" fill="#b3bfdc" font-family="Arial" font-size="30">Reliability • Safety • Observability</text>
+</svg>
