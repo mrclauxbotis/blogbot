@@ -1,7 +1,9 @@
 {{ define "main" }}
-<article>
-  <h1>{{ .Title }}</h1>
-  <p><small>Published: {{ .Date.Format "2006-01-02" }}</small></p>
-  {{ .Content }}
-</article>
+<div class="prose">
+  <article>
+    <h1>{{ .Title }}</h1>
+    <p class="meta">Published: {{ .Date.Format "2006-01-02" }}</p>
+    {{ .Content }}
+  </article>
+</div>
 {{ end }}

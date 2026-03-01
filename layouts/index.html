@@ -1,14 +1,15 @@
 {{ define "main" }}
-<h1>{{ .Site.Title }}</h1>
-<p>{{ .Site.Params.description }}</p>
+<section class="hero prose">
+  <h1>{{ .Site.Title }}</h1>
+  <p>{{ .Site.Params.description }}</p>
+</section>
 
-<h2>Latest Posts</h2>
-<ul>
-  {{ range first 20 (where .Site.RegularPages "Section" "posts") }}
-    <li>
-      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-      <small> — {{ .Date.Format "2006-01-02" }}</small>
-    </li>
+<section class="post-grid">
+  {{ range first 24 (where .Site.RegularPages "Section" "posts") }}
+  <article class="post-card">
+    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+    <div class="meta">{{ .Date.Format "2006-01-02" }}</div>
+  </article>
   {{ end }}
-</ul>
+</section>
 {{ end }}

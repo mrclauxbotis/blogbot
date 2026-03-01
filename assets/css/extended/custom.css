@@ -1,0 +1,100 @@
+:root {
+  --bg: #0b1020;
+  --bg-soft: #121a31;
+  --card: #11182d;
+  --text: #e8ecf8;
+  --muted: #a7b0c8;
+  --accent: #6ea8fe;
+  --accent-2: #7cf2c3;
+  --border: #26304d;
+  --maxw: 760px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: linear-gradient(180deg, var(--bg) 0%, #0d1326 100%);
+  color: var(--text);
+  line-height: 1.7;
+}
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(8px);
+  background: rgba(11,16,32,.75);
+  border-bottom: 1px solid var(--border);
+}
+
+.wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 64px;
+}
+.brand {
+  font-weight: 800;
+  letter-spacing: .2px;
+  color: #fff;
+}
+.brand small { color: var(--accent-2); font-weight: 700; }
+
+.main { padding: 32px 0 60px; }
+.prose { max-width: var(--maxw); margin: 0 auto; }
+
+h1,h2,h3 { line-height: 1.2; margin: 1.1em 0 .5em; }
+h1 { font-size: clamp(2rem, 4vw, 2.8rem); }
+h2 { font-size: clamp(1.4rem, 2.5vw, 1.8rem); }
+
+.hero {
+  background: radial-gradient(1200px 400px at 0% -20%, #1f335f 0%, transparent 45%);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 26px;
+  margin-bottom: 28px;
+}
+.hero p { color: var(--muted); margin: 10px 0 0; }
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px;
+}
+.post-card {
+  border: 1px solid var(--border);
+  background: var(--card);
+  border-radius: 12px;
+  padding: 14px 16px;
+}
+.post-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+}
+.meta { color: var(--muted); font-size: .9rem; }
+
+article {
+  border: 1px solid var(--border);
+  background: #0e152a;
+  border-radius: 14px;
+  padding: 24px;
+}
+article p, article li { color: #dbe3f8; }
+article code {
+  background: #1a2443;
+  border: 1px solid #2a3969;
+  border-radius: 6px;
+  padding: 2px 6px;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  padding: 18px 0 40px;
+  text-align: center;
+}
