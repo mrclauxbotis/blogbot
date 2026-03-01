@@ -1,22 +1,50 @@
 {{ define "main" }}
+<div class="progress-bar"></div>
+
+<div class="post-header">
+  {{ with index .Params.categories 0 }}<span class="category-pill">{{ . }}</span>{{ end }}
+  <h1 class="post-title">{{ .Title }}</h1>
+  {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+  <div class="post-meta">
+    <span>{{ .Date.Format "Jan 2, 2006" }}</span>
+    <span class="post-meta-sep">·</span>
+    <span>{{ .ReadingTime }} min read</span>
+    {{ with .Params.tags }}
+      {{ range first 3 . }}<span class="post-meta-tag">{{ . }}</span>{{ end }}
+    {{ end }}
+  </div>
+</div>
+
+<div class="ad-leaderboard">Ad Placeholder 728x90</div>
+
 <div class="article-layout">
   <article class="post-content">
-    <header class="post-header">
-      {{ with index .Params.categories 0 }}<span class="category-pill">{{ . }}</span>{{ end }}
-      <h1>{{ .Title }}</h1>
-      {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
-      <div class="post-meta">
-        <span>{{ .Date.Format "2006-01-02" }}</span>
-        <span>•</span>
-        <span>{{ .ReadingTime }} min read</span>
-      </div>
-    </header>
-
     {{ with .Params.cover.image }}
       <img class="cover-img" src="{{ . }}" alt="{{ $.Params.cover.alt }}">
     {{ end }}
 
     {{ .Content }}
+
+    <div class="ad-incontent">
+      <div class="ad-incontent-label">In-content ad slot</div>
+      <div class="ad-size-hint">336x280</div>
+    </div>
+
+    <section class="related-posts">
+      <div class="related-heading">Related posts</div>
+      <div class="related-grid">
+        {{ range first 3 (where .Site.RegularPages "Section" "posts") }}
+        <a class="related-card" href="{{ .RelPermalink }}">
+          <div class="related-thumb"></div>
+          <div class="related-body">
+            <div class="related-cat">{{ index .Params.categories 0 }}</div>
+            <div class="related-title">{{ .Title }}</div>
+            <div class="related-meta">{{ .Date.Format "Jan 2, 2006" }}</div>
+          </div>
+        </a>
+        {{ end }}
+      </div>
+    </section>
   </article>
 
   <aside class="sidebar">
@@ -30,6 +58,7 @@
       <a class="btn" href="#">Subscribe</a>
     </div>
     <div class="ad-box">Ad Slot 300x250</div>
+    <div class="ad-box" style="min-height:600px">Ad Slot 300x600</div>
   </aside>
 </div>
 {{ end }}
