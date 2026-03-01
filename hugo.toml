@@ -1,0 +1,6 @@
+baseURL = 'https://blog.jidokacommunity.org/'
+languageCode = 'en-us'
+title = 'BlogBot'
+
+[params]
+  description = 'AI / LLM / GenAI tooling blog'
