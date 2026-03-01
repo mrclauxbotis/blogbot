@@ -1,15 +1,55 @@
 {{ define "main" }}
-<section class="hero">
-  <h1>{{ .Site.Title }}</h1>
-  <p>{{ .Site.Params.description }}</p>
-</section>
+<div class="section-eyebrow">Latest articles</div>
+<div class="section-title">Production AI Engineering</div>
 
-<section class="post-grid">
-  {{ range first 24 (where .Site.RegularPages "Section" "posts") }}
-  <article class="post-card">
-    <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-    <div class="meta">{{ .Date.Format "2006-01-02" }}</div>
+{{ $posts := where .Site.RegularPages "Section" "posts" }}
+{{ $featured := first 1 $posts }}
+{{ $nextTwo := first 2 (after 1 $posts) }}
+{{ $nextThree := first 3 (after 3 $posts) }}
+
+<div class="hero-grid">
+  {{ range $featured }}
+  <article class="hero-card">
+    <a href="{{ .RelPermalink }}" class="hero-thumb" aria-label="{{ .Title }}">
+      <div class="hero-thumb-diagram">
+        <span class="mini-box">Input</span><span>→</span><span class="mini-box">Context</span><span>→</span><span class="mini-box">LLM</span><span>→</span><span class="mini-box">Output</span>
+      </div>
+    </a>
+    <div class="hero-body">
+      <div class="hero-category">{{ index .Params.categories 0 }} · {{ .ReadingTime }} min read</div>
+      <h2 class="hero-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+      <p class="hero-excerpt">{{ with .Description }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
+      <div class="hero-meta"><span>{{ .Date.Format "Jan 2, 2006" }}</span></div>
+    </div>
   </article>
   {{ end }}
-</section>
+
+  <div style="display:grid;gap:16px;">
+    {{ range $nextTwo }}
+    <article class="hero-card">
+      <a href="{{ .RelPermalink }}" class="hero-thumb hero-thumb-sm"></a>
+      <div class="hero-body">
+        <div class="hero-category">{{ index .Params.categories 0 }} · {{ .ReadingTime }} min read</div>
+        <h3 class="hero-title hero-title-sm"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+        <div class="hero-meta"><span>{{ .Date.Format "Jan 2, 2006" }}</span></div>
+      </div>
+    </article>
+    {{ end }}
+  </div>
+</div>
+
+<div class="section-divider"><span>More</span>Fresh technical posts</div>
+
+<div class="small-grid">
+  {{ range $nextThree }}
+  <article class="small-card">
+    <a href="{{ .RelPermalink }}" class="small-thumb"></a>
+    <div class="small-body">
+      <div class="small-cat">{{ index .Params.categories 0 }}</div>
+      <div class="small-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
+      <div class="small-meta">{{ .Date.Format "Jan 2, 2006" }} · {{ .ReadingTime }} min</div>
+    </div>
+  </article>
+  {{ end }}
+</div>
 {{ end }}
