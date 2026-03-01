@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{{ if .Title }}{{ .Title }} | {{ end }}{{ .Site.Title }}</title>
     <meta name="description" content="{{ .Site.Params.description }}" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     {{ partial "extend_head.html" . }}
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap nav">
-        <a class="brand" href="/">LLM<small>Craft</small></a>
-        <nav><a href="/posts/">Posts</a></nav>
+    <div class="preview-label">LLMCraft — AI Engineering Blog</div>
+    <nav class="site-nav">
+      <div class="nav-inner">
+        <a class="logo" href="/"><span class="logo-dot"></span>LLMCraft</a>
+        <ul class="nav-links">
+          <li><a href="/" class="active">Home</a></li>
+          <li><a href="/posts/">Posts</a></li>
+        </ul>
+        <a class="nav-cta" href="/posts/">Read Latest</a>
       </div>
-    </header>
+    </nav>
 
-    <main class="main wrap">
+    <div class="page-wrap">
       {{ block "main" . }}{{ end }}
-    </main>
+    </div>
 
-    <footer class="footer wrap">
-      <small>LLMCraft • AI / LLM / GenAI tooling</small>
-    </footer>
+    <footer class="footer">LLMCraft • AI / LLM / GenAI tooling</footer>
     {{ partial "extend_footer.html" . }}
   </body>
 </html>

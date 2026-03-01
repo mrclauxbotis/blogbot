@@ -1,7 +1,9 @@
 {{ define "main" }}
-<section class="prose">
+<section class="hero">
   <h1>{{ .Title }}</h1>
+  <p>Latest engineering posts on AI agents, RAG, and LLM infrastructure.</p>
 </section>
+
 <section class="post-grid">
   {{ range .Pages }}
   <article class="post-card">

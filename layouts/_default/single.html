@@ -1,9 +1,35 @@
 {{ define "main" }}
-<div class="prose">
-  <article>
-    <h1>{{ .Title }}</h1>
-    <p class="meta">Published: {{ .Date.Format "2006-01-02" }}</p>
+<div class="article-layout">
+  <article class="post-content">
+    <header class="post-header">
+      {{ with index .Params.categories 0 }}<span class="category-pill">{{ . }}</span>{{ end }}
+      <h1>{{ .Title }}</h1>
+      {{ with .Description }}<p class="post-description">{{ . }}</p>{{ end }}
+      <div class="post-meta">
+        <span>{{ .Date.Format "2006-01-02" }}</span>
+        <span>•</span>
+        <span>{{ .ReadingTime }} min read</span>
+      </div>
+    </header>
+
+    {{ with .Params.cover.image }}
+      <img class="cover-img" src="{{ . }}" alt="{{ $.Params.cover.alt }}">
+    {{ end }}
+
     {{ .Content }}
   </article>
+
+  <aside class="sidebar">
+    <div class="toc-card">
+      <div class="toc-label">Table of Contents</div>
+      {{ .TableOfContents }}
+    </div>
+    <div class="newsletter-card">
+      <div style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:6px">Weekly AI Engineering Notes</div>
+      <div style="font-size:12px;opacity:.88">One tactical insight per week. No spam.</div>
+      <a class="btn" href="#">Subscribe</a>
+    </div>
+    <div class="ad-box">Ad Slot 300x250</div>
+  </aside>
 </div>
 {{ end }}
