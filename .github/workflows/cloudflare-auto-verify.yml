@@ -1,0 +1,88 @@
+name: Cloudflare Auto-Deploy Verification
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: read
+
+jobs:
+  verify-cloudflare-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Wait for Cloudflare check run to complete
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const ref = context.sha;
+
+            const deadline = Date.now() + 10 * 60 * 1000; // 10 min
+            const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+
+            let seenCloudflare = false;
+            while (Date.now() < deadline) {
+              const checks = await github.rest.checks.listForRef({
+                owner,
+                repo,
+                ref,
+                per_page: 100,
+              });
+
+              const cloudflareChecks = checks.data.check_runs.filter(c =>
+                /cloudflare/i.test(c.name)
+              );
+
+              if (cloudflareChecks.length > 0) {
+                seenCloudflare = true;
+                const pending = cloudflareChecks.filter(c => c.status !== 'completed');
+                if (pending.length === 0) {
+                  const failed = cloudflareChecks.filter(c => c.conclusion !== 'success');
+                  if (failed.length > 0) {
+                    core.setFailed(
+                      `Cloudflare checks completed but not successful: ${failed.map(f => `${f.name}=${f.conclusion}`).join(', ')}`
+                    );
+                    return;
+                  }
+                  core.info('Cloudflare check(s) completed successfully.');
+                  return;
+                }
+              }
+
+              core.info('Waiting for Cloudflare check run...');
+              await sleep(15000);
+            }
+
+            if (!seenCloudflare) {
+              core.setFailed('Timed out waiting for a Cloudflare check run on this commit.');
+            } else {
+              core.setFailed('Timed out waiting for Cloudflare check run completion.');
+            }
+
+  smoke-test-live-url:
+    runs-on: ubuntu-latest
+    needs: verify-cloudflare-check
+    timeout-minutes: 5
+    env:
+      BLOG_URL: https://blogbot.jc-maldo-be.workers.dev
+    steps:
+      - name: Smoke test blog URL
+        run: |
+          set -e
+          echo "Testing $BLOG_URL"
+          for i in {1..20}; do
+            code=$(curl -s -o /tmp/blog.html -w "%{http_code}" "$BLOG_URL" || true)
+            if [ "$code" = "200" ] && grep -qi "BlogBot" /tmp/blog.html; then
+              echo "Smoke test passed on attempt $i"
+              exit 0
+            fi
+            echo "Attempt $i failed (status=$code). Retrying..."
+            sleep 10
+          done
+          echo "Smoke test failed after retries"
+          exit 1
