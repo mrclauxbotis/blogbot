@@ -1,9 +1,9 @@
 baseURL = 'https://blogbot.jc-maldo-be.workers.dev/'
 languageCode = 'en-us'
-title = 'BlogBot'
+title = 'LLMCraft'
 
 [params]
-  description = 'AI / LLM / GenAI tooling blog'
+  description = 'LLMCraft — AI / LLM / GenAI engineering blog'
 
 [permalinks]
   posts = '/posts/:slug/'
