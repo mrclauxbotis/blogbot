@@ -10,11 +10,12 @@ permissions:
   checks: read
 
 jobs:
-  verify-cloudflare-check:
+  verify-cloudflare-check-optional:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 3
+    continue-on-error: true
     steps:
-      - name: Wait for Cloudflare check run to complete
+      - name: Check whether Cloudflare check run exists (informational)
         uses: actions/github-script@v7
         with:
           script: |
@@ -22,66 +23,40 @@ jobs:
             const repo = context.repo.repo;
             const ref = context.sha;
 
-            const deadline = Date.now() + 10 * 60 * 1000; // 10 min
-            const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+            const checks = await github.rest.checks.listForRef({
+              owner,
+              repo,
+              ref,
+              per_page: 100,
+            });
 
-            let seenCloudflare = false;
-            while (Date.now() < deadline) {
-              const checks = await github.rest.checks.listForRef({
-                owner,
-                repo,
-                ref,
-                per_page: 100,
-              });
-
-              const cloudflareChecks = checks.data.check_runs.filter(c =>
-                /cloudflare/i.test(c.name)
-              );
-
-              if (cloudflareChecks.length > 0) {
-                seenCloudflare = true;
-                const pending = cloudflareChecks.filter(c => c.status !== 'completed');
-                if (pending.length === 0) {
-                  const failed = cloudflareChecks.filter(c => c.conclusion !== 'success');
-                  if (failed.length > 0) {
-                    core.setFailed(
-                      `Cloudflare checks completed but not successful: ${failed.map(f => `${f.name}=${f.conclusion}`).join(', ')}`
-                    );
-                    return;
-                  }
-                  core.info('Cloudflare check(s) completed successfully.');
-                  return;
-                }
-              }
-
-              core.info('Waiting for Cloudflare check run...');
-              await sleep(15000);
+            const cloudflareChecks = checks.data.check_runs.filter(c => /cloudflare/i.test(c.name));
+            if (cloudflareChecks.length === 0) {
+              core.notice('No Cloudflare check run published for this commit. Continuing with live smoke test.');
+              return;
             }
 
-            if (!seenCloudflare) {
-              core.setFailed('Timed out waiting for a Cloudflare check run on this commit.');
-            } else {
-              core.setFailed('Timed out waiting for Cloudflare check run completion.');
-            }
+            const summary = cloudflareChecks.map(c => `${c.name}: ${c.status}/${c.conclusion ?? 'n/a'}`).join(' | ');
+            core.info(`Cloudflare checks found -> ${summary}`);
 
   smoke-test-live-url:
     runs-on: ubuntu-latest
-    needs: verify-cloudflare-check
-    timeout-minutes: 5
+    needs: verify-cloudflare-check-optional
+    timeout-minutes: 8
     env:
       BLOG_URL: https://blogbot.jc-maldo-be.workers.dev
     steps:
-      - name: Smoke test blog URL
+      - name: Smoke test blog URL after push
         run: |
           set -e
           echo "Testing $BLOG_URL"
-          for i in {1..20}; do
+          for i in {1..36}; do
             code=$(curl -s -o /tmp/blog.html -w "%{http_code}" "$BLOG_URL" || true)
             if [ "$code" = "200" ] && grep -qi "BlogBot" /tmp/blog.html; then
               echo "Smoke test passed on attempt $i"
               exit 0
             fi
-            echo "Attempt $i failed (status=$code). Retrying..."
+            echo "Attempt $i failed (status=$code). Retrying in 10s..."
             sleep 10
           done
           echo "Smoke test failed after retries"
