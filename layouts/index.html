@@ -1,4 +1,14 @@
 {{ define "main" }}
 <h1>{{ .Site.Title }}</h1>
 <p>{{ .Site.Params.description }}</p>
+
+<h2>Latest Posts</h2>
+<ul>
+  {{ range first 20 (where .Site.RegularPages "Section" "posts") }}
+    <li>
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+      <small> — {{ .Date.Format "2006-01-02" }}</small>
+    </li>
+  {{ end }}
+</ul>
 {{ end }}

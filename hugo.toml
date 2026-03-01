@@ -1,6 +1,9 @@
-baseURL = 'https://blog.jidokacommunity.org/'
+baseURL = 'https://blogbot.jc-maldo-be.workers.dev/'
 languageCode = 'en-us'
 title = 'BlogBot'
 
 [params]
   description = 'AI / LLM / GenAI tooling blog'
+
+[permalinks]
+  posts = '/posts/:slug/'
