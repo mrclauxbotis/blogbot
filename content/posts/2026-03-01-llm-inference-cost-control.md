@@ -42,3 +42,30 @@ Most LLM cost overruns come from policy gaps, not model price alone.
 
 ## Recommendation
 Use policy-based routing + budget enforcement before negotiating model pricing.
+
+
+## CFO/CEO-friendly cost narrative
+LLM cost control should be framed as **unit economics**, not raw token spend. Mature teams optimize “cost per successful business outcome.”
+
+## Cost governance model
+Define a policy matrix by workflow criticality:
+
+- **Standard workflows:** low-cost model, strict token cap
+- **High-value workflows:** quality-first model with budget guardrails
+- **Critical workflows:** premium tier with explicit business justification
+
+## Architecture patterns with strong ROI
+1. **Semantic caching** for repeated intent classes
+2. **Prompt compaction** to reduce context bloat
+3. **Adaptive routing** based on complexity score
+4. **Batching** for asynchronous, non-interactive tasks
+
+## Monthly executive dashboard
+- Cost per successful task
+- Margin impact vs baseline process
+- Model mix distribution (cheap vs premium)
+- Cache hit rate and avoided-token estimate
+- Quality regression incidents tied to cost optimizations
+
+## Governance principle
+No cost optimization ships without a quality backstop. If task success or customer satisfaction drops, rollback automatically.

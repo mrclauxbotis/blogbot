@@ -85,3 +85,38 @@ Before your next release, confirm:
 - [ ] ownership assigned for post-release monitoring
 
 That single process change will improve reliability more than chasing model upgrades every week.
+
+
+## Leadership blueprint: evaluation as release governance
+For a CTO, LLM evaluation should be treated like a release gate equivalent to security scanning or performance testing. If quality gates are optional, regressions are inevitable.
+
+## Three-layer evaluation stack
+### Layer 1 — Offline validation
+Golden dataset + scenario coverage for deterministic regression checks.
+
+### Layer 2 — Pre-production validation
+Integration checks for tool calls, policy filters, retrieval dependencies, and latency budgets.
+
+### Layer 3 — Canary in production
+Traffic-sliced release with auto rollback on KPI drift.
+
+## KPI design for C-level visibility
+Map technical metrics to business outcomes:
+
+| Technical metric | Business interpretation |
+|---|---|
+| Hallucination rate | Trust and brand risk |
+| Escalation rate | Service cost pressure |
+| Task success rate | Revenue/process throughput |
+| Latency p95 | User adoption and conversion risk |
+| Cost per task | Margin sustainability |
+
+## Release committee checklist
+Before each major model/prompt release:
+- Security/compliance sign-off
+- Data governance sign-off
+- Product acceptance threshold sign-off
+- Incident rollback owner assigned
+
+## Implementation recommendation
+Automate evaluation in CI/CD and treat failed quality gates as hard deployment blockers. Teams that do this move faster over time because they reduce firefighting and rework.

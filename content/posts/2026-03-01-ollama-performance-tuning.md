@@ -44,3 +44,35 @@ Track this over time:
 
 ## Recommendation
 Tune for **predictable p95 latency**, not only peak throughput.
+
+
+## Strategic view for technical leadership
+Local LLM deployment is usually a tradeoff between privacy, latency control, and platform complexity. For CTOs, the relevant question is where local inference creates strategic advantage (regulated workloads, on-prem constraints, predictable cost).
+
+## Capacity planning model
+Before tuning, define target envelopes:
+- Concurrent users
+- p95 response time objective
+- Max hardware spend per environment
+
+Then map model size to hardware tiers and enforce request quotas per tier.
+
+## Engineering playbook
+### 1) Baseline benchmark
+Establish a repeatable benchmark suite (same prompts, same temperature, same context lengths).
+
+### 2) Workload segmentation
+Separate workloads into short-form classification vs long-context generation. Tune each differently.
+
+### 3) Operational controls
+- Queue depth alarms
+- OOM and swap monitoring
+- Graceful degradation path (smaller fallback model)
+
+## Business-facing KPI set
+- Cost per 10k requests (local infra + ops overhead)
+- p95 latency by use case
+- Availability during peak windows
+- Developer support load to maintain the stack
+
+This gives leadership a clear basis to decide whether local-first remains economically justified over API-based inference.

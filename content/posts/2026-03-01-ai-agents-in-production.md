@@ -68,3 +68,36 @@ Useful docs:
 
 ## Final recommendation
 Treat agents as distributed systems with policy boundaries—not as chat wrappers. Reliability comes from architecture and operations discipline.
+
+
+## Executive lens: what leadership should care about
+For CTOs and Software Architects, production agents are a **risk-adjusted throughput** decision. The question is not “can the model answer?” but “can the system answer reliably within policy, cost, and latency constraints?”
+
+For CEOs, the KPI is straightforward: does the agent reduce cycle time or operational cost **without increasing compliance risk**?
+
+Suggested board-level KPIs:
+- Task completion rate (business-defined)
+- Escalation-to-human rate
+- Incident rate per 1,000 sessions
+- Cost per successful outcome
+
+## Reference operating model (RACI)
+Use a clear ownership model to avoid gray areas:
+
+- **Product/Business:** intent definition, acceptance criteria
+- **Tech Lead:** orchestration and release strategy
+- **Security/Compliance:** policy rules and audit checks
+- **SRE/Platform:** reliability SLOs and rollback automation
+
+Without this split, teams often ship impressive demos that fail under production accountability.
+
+## Rollout playbook (90 days)
+**Phase 1 (Weeks 1–3):** constrained pilot, low-risk workflow, manual approval on high-impact actions.  
+**Phase 2 (Weeks 4–8):** expand tool coverage, enforce budgets, add failure taxonomy dashboards.  
+**Phase 3 (Weeks 9–12):** canary deployment + automatic rollback on quality or latency drift.
+
+## What “good” looks like by quarter end
+- >80% successful completion on scoped workflows
+- <5% policy exceptions requiring manual remediation
+- p95 latency and cost within predefined budget envelopes
+- Incident postmortems linked to concrete control improvements

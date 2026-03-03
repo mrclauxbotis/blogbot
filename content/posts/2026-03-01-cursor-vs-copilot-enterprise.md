@@ -47,3 +47,30 @@ For enterprise teams, the best coding assistant is the one that fits your govern
 
 ## Bottom line
 Run a measured pilot and choose based on production metrics, not feature checklists.
+
+
+## Executive summary for CTO/CEO
+This is not a tooling beauty contest. It is a platform governance decision with measurable impact on delivery velocity and engineering quality.
+
+For CEOs: evaluate assistant adoption as a productivity program with explicit ROI assumptions.  
+For CTOs: enforce standards so assistant-generated code does not bypass architecture and security guardrails.
+
+## Enterprise pilot scorecard
+Use a weighted scorecard to avoid subjective selection:
+
+| Dimension | Weight | Example metric |
+|---|---:|---|
+| Security & governance | 30% | policy coverage, auditability |
+| Developer productivity | 25% | PR cycle time delta |
+| Code quality impact | 20% | defect density after merge |
+| Integration fit | 15% | IDE/workflow friction |
+| Total cost of ownership | 10% | licenses + review overhead |
+
+## Policy controls before broad rollout
+- Mandatory secure coding checks in CI for AI-assisted code
+- Sensitive repository restrictions
+- Generated code attribution policy (for traceability)
+- Team training on prompt hygiene and validation
+
+## Decision recommendation
+Pick the assistant that your platform team can govern at scale, not the one with the flashiest demo. In enterprise environments, predictable compliance and consistent code quality usually outweigh short-term suggestion speed.

@@ -55,3 +55,38 @@ Track these before and after changes:
 
 ## Recommendation
 Treat RAG like a search system first and a generation system second.
+
+
+## CTO/Architect decision framework
+RAG is a **knowledge supply chain**. If ingestion quality is poor, retrieval precision degrades. If retrieval degrades, generation quality collapses. Think in terms of system quality gates, not prompt hacks.
+
+For Tech Leads, separate decisions into three layers:
+1. Data governance and freshness
+2. Retrieval architecture and ranking quality
+3. Generation policy and response formatting
+
+## Architecture choices that change outcomes
+### Dense-only vs hybrid retrieval
+- Dense-only is simpler, but can miss exact-phrase or identifier-heavy queries.
+- Hybrid (dense + keyword/sparse) is typically stronger for enterprise docs, tickets, and API references.
+
+### Reranking policy
+Rerankers are expensive but often produce the largest quality jump for complex queries. A practical pattern:
+- Retrieve top 30 fast
+- Rerank top 10 with stronger model
+- Generate from top 5 with citation constraints
+
+## Governance and compliance checklist
+- Data source registry with owner, sensitivity, and retention policy
+- PII redaction before embedding
+- Tenant-level metadata filtering enforced server-side
+- Audit trails for source documents used in each answer
+
+## Financial model (for leadership)
+Track monthly:
+- Ingestion cost (embedding + storage)
+- Query cost (retrieval + rerank + generation)
+- Support deflection impact (tickets reduced)
+- Cost per resolved knowledge task
+
+A high-quality RAG program should show both better answer quality and reduced support burden.
