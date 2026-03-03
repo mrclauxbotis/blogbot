@@ -1,8 +1,8 @@
 ---
 title: "RAG Pipeline Checklist: From Ingestion to Reliable Answers"
 description: "A field-tested checklist for building reliable RAG pipelines, including chunking, retrieval, reranking, and evaluation."
-date: 2026-03-01T14:10:00Z
-lastmod: 2026-03-01T16:50:00Z
+date: 2026-02-02T09:00:00Z
+lastmod: 2026-02-02T09:00:00Z
 draft: false
 author: "The Editorial Team"
 categories: ["C2"]

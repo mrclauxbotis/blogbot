@@ -1,8 +1,8 @@
 ---
 title: "LLM Inference Cost Control: Practical Playbook for Platform Teams"
 description: "A practical playbook to reduce LLM inference spend with routing, caching, batching, and SLO-aware policies."
-date: 2026-03-01T14:40:00Z
-lastmod: 2026-03-01T16:50:00Z
+date: 2026-02-16T09:00:00Z
+lastmod: 2026-02-16T09:00:00Z
 draft: false
 author: "The Editorial Team"
 categories: ["C5"]

@@ -1,8 +1,8 @@
 ---
 title: "Cursor vs GitHub Copilot for Enterprise Teams (2026)"
 description: "A practical comparison of Cursor vs GitHub Copilot for enterprise engineering teams: governance, speed, and workflow fit."
-date: 2026-03-01T14:20:00Z
-lastmod: 2026-03-01T16:50:00Z
+date: 2026-02-23T09:00:00Z
+lastmod: 2026-02-23T09:00:00Z
 draft: false
 author: "The Editorial Team"
 categories: ["C3"]

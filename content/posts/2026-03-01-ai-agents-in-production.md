@@ -1,8 +1,8 @@
 ---
 title: "AI Agents in Production: Architecture, Guardrails, and Failure Modes"
 description: "A practical guide to shipping AI agents in production with architecture patterns, guardrails, observability, and incident playbooks."
-date: 2026-03-01T14:00:00Z
-lastmod: 2026-03-01T16:50:00Z
+date: 2026-03-02T09:00:00Z
+lastmod: 2026-03-02T09:00:00Z
 draft: false
 author: "The Editorial Team"
 categories: ["C1"]
