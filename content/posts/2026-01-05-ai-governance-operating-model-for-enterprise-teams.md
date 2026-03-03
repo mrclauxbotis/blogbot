@@ -94,3 +94,23 @@ No gate pass, no release.
 
 ## Final recommendation
 Treat AI governance as an operating system for decision-making—not a documentation exercise. The organizations that scale AI safely are the ones that encode governance directly into engineering workflows.
+
+
+## Implementation snippets
+
+### TypeScript — governance rule model
+```ts
+type RiskTier = "low" | "medium" | "high";
+
+type GovernanceRule = {
+  workflow: string;
+  tier: RiskTier;
+  requiresHumanApproval: boolean;
+};
+```
+
+### Scala — release decision by gate results
+```scala
+case class Gates(offline: Boolean, staging: Boolean, canary: Boolean)
+def canRelease(g: Gates): Boolean = g.offline && g.staging && g.canary
+```

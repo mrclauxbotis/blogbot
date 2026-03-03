@@ -120,3 +120,21 @@ Before each major model/prompt release:
 
 ## Implementation recommendation
 Automate evaluation in CI/CD and treat failed quality gates as hard deployment blockers. Teams that do this move faster over time because they reduce firefighting and rework.
+
+
+## Implementation snippets
+
+### Python — release gate evaluation
+```python
+def release_gate(task_success, hallucination_rate, latency_p95_ms):
+    return task_success >= 0.85 and hallucination_rate <= 0.02 and latency_p95_ms <= 2500
+```
+
+### Java — canary rollback trigger
+```java
+public class CanaryGate {
+  public static boolean shouldRollback(double errorRate, double threshold) {
+    return errorRate > threshold;
+  }
+}
+```

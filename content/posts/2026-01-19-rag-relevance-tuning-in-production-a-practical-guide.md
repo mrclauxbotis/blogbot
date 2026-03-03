@@ -51,3 +51,20 @@ If any gate fails, block rollout.
 
 ## Recommendation
 Treat AI delivery as an engineering system with product accountability. Teams that standardize gates, metrics, and ownership scale faster with fewer incidents.
+
+
+## Implementation snippets
+
+### Python — relevance thresholding
+```python
+def filter_by_relevance(hits, threshold=0.72):
+    return [h for h in hits if h["score"] >= threshold]
+```
+
+### Java — deterministic tie-breaker
+```java
+hits.sort((a, b) -> {
+  int byScore = Double.compare(b.score(), a.score());
+  return byScore != 0 ? byScore : a.id().compareTo(b.id());
+});
+```

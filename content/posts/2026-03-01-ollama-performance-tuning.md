@@ -76,3 +76,18 @@ Separate workloads into short-form classification vs long-context generation. Tu
 - Developer support load to maintain the stack
 
 This gives leadership a clear basis to decide whether local-first remains economically justified over API-based inference.
+
+
+## Implementation snippets
+
+### Bash — basic latency probe
+```bash
+time curl -s http://localhost:11434/api/generate   -d '{"model":"qwen2.5:7b","prompt":"healthcheck","stream":false}' >/dev/null
+```
+
+### Python — p95 calculator
+```python
+import numpy as np
+latencies_ms = [120, 132, 118, 140, 150, 125]
+print("p95:", np.percentile(latencies_ms, 95))
+```

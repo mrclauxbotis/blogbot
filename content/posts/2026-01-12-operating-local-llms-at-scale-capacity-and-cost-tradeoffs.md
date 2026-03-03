@@ -51,3 +51,19 @@ If any gate fails, block rollout.
 
 ## Recommendation
 Treat AI delivery as an engineering system with product accountability. Teams that standardize gates, metrics, and ownership scale faster with fewer incidents.
+
+
+## Implementation snippets
+
+### TypeScript — simple capacity planner
+```ts
+export function estimateRequiredWorkers(rps: number, perWorkerRps: number): number {
+  return Math.ceil(rps / perWorkerRps);
+}
+```
+
+### Python — cost per 1k requests
+```python
+def cost_per_1k(total_usd: float, total_requests: int) -> float:
+    return (total_usd / total_requests) * 1000 if total_requests else 0.0
+```

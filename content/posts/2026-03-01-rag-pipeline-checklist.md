@@ -90,3 +90,28 @@ Track monthly:
 - Cost per resolved knowledge task
 
 A high-quality RAG program should show both better answer quality and reduced support burden.
+
+
+## Implementation snippets
+
+### Python — hybrid retrieval skeleton
+```python
+def hybrid_retrieve(query, dense_index, sparse_index, k=20):
+    dense = dense_index.search(query, k=k)
+    sparse = sparse_index.search(query, k=k)
+    merged = merge_rankings(dense, sparse)
+    return merged[:k]
+```
+
+### Scala — simple rerank combiner
+```scala
+case class Hit(id: String, score: Double)
+
+def rerank(dense: Seq[Hit], sparse: Seq[Hit]): Seq[Hit] = {
+  (dense ++ sparse)
+    .groupBy(_.id)
+    .map { case (id, hs) => Hit(id, hs.map(_.score).sum) }
+    .toSeq
+    .sortBy(- _.score)
+}
+```

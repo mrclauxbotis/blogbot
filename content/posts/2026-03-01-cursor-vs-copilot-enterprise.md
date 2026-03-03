@@ -74,3 +74,30 @@ Use a weighted scorecard to avoid subjective selection:
 
 ## Decision recommendation
 Pick the assistant that your platform team can govern at scale, not the one with the flashiest demo. In enterprise environments, predictable compliance and consistent code quality usually outweigh short-term suggestion speed.
+
+
+## Implementation snippets
+
+### TypeScript — scorecard model
+```ts
+interface Scorecard {
+  security: number;
+  productivity: number;
+  quality: number;
+  integration: number;
+  tco: number;
+}
+
+export function weightedScore(s: Scorecard): number {
+  return s.security * 0.30 + s.productivity * 0.25 + s.quality * 0.20 + s.integration * 0.15 + s.tco * 0.10;
+}
+```
+
+### Java — policy check example
+```java
+public class RepoPolicy {
+  public static boolean allowAssistantOnRepo(String repoSensitivity) {
+    return !"restricted".equalsIgnoreCase(repoSensitivity);
+  }
+}
+```

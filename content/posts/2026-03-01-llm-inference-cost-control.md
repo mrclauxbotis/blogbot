@@ -69,3 +69,21 @@ Define a policy matrix by workflow criticality:
 
 ## Governance principle
 No cost optimization ships without a quality backstop. If task success or customer satisfaction drops, rollback automatically.
+
+
+## Implementation snippets
+
+### Python — policy-based model routing
+```python
+def route_model(task_complexity: str) -> str:
+    if task_complexity == "high":
+        return "premium-model"
+    if task_complexity == "medium":
+        return "balanced-model"
+    return "fast-cheap-model"
+```
+
+### Scala — budget guard
+```scala
+def withinBudget(currentUsd: Double, maxUsd: Double): Boolean = currentUsd <= maxUsd
+```

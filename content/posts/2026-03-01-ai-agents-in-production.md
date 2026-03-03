@@ -101,3 +101,26 @@ Without this split, teams often ship impressive demos that fail under production
 - <5% policy exceptions requiring manual remediation
 - p95 latency and cost within predefined budget envelopes
 - Incident postmortems linked to concrete control improvements
+
+
+## Implementation snippets
+
+### Python — guarded tool execution
+```python
+ALLOWED_TOOLS = {"search_docs", "create_ticket"}
+
+def execute_tool(name: str, args: dict):
+    if name not in ALLOWED_TOOLS:
+        raise ValueError(f"Tool not allowed: {name}")
+    # budget + schema checks would run here
+    return run_tool(name, args)
+```
+
+### TypeScript — action approval gate
+```ts
+type Action = { name: string; risk: "low" | "high" };
+
+export function requiresApproval(action: Action): boolean {
+  return action.risk === "high";
+}
+```
