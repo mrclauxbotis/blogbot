@@ -1,6 +1,4 @@
 {{ define "main" }}
-<div class="progress-bar"></div>
-
 <div class="post-header">
   {{ with index .Params.categories 0 }}<span class="category-pill">{{ . }}</span>{{ end }}
   <h1 class="post-title">{{ .Title }}</h1>
@@ -15,8 +13,6 @@
   </div>
 </div>
 
-<div class="ad-leaderboard">Ad Placeholder 728x90</div>
-
 <div class="article-layout">
   <article class="post-content">
     {{ with .Params.cover.image }}
@@ -25,10 +21,6 @@
 
     {{ .Content }}
 
-    <div class="ad-incontent">
-      <div class="ad-incontent-label">In-content ad slot</div>
-      <div class="ad-size-hint">336x280</div>
-    </div>
 
     <section class="related-posts">
       <div class="related-heading">Related posts</div>
@@ -52,13 +44,8 @@
       <div class="toc-label">Table of Contents</div>
       {{ .TableOfContents }}
     </div>
-    <div class="newsletter-card">
-      <div style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:6px">Weekly AI Engineering Notes</div>
-      <div style="font-size:12px;opacity:.88">One tactical insight per week. No spam.</div>
-      <a class="btn" href="#">Subscribe</a>
-    </div>
-    <div class="ad-box">Ad Slot 300x250</div>
-    <div class="ad-box" style="min-height:600px">Ad Slot 300x600</div>
+
+
   </aside>
 </div>
 {{ end }}

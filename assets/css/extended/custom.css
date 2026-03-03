@@ -137,3 +137,8 @@ nav.site-nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rg
 @media (max-width: 980px){
   .related-grid{grid-template-columns:1fr}
 }
+
+
+/* UX cleanup requested */
+.preview-label{display:none!important;}
+.progress-bar{display:none!important;}
