@@ -5,7 +5,7 @@ date: 2026-02-16T09:00:00Z
 lastmod: 2026-02-16T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C5"]
+categories: ["AI Platform & MLOps"]
 tags: ["llmops", "cost optimization", "inference", "platform engineering"]
 keywords: ["LLM inference cost", "LLM routing", "SLO-aware AI"]
 cover:

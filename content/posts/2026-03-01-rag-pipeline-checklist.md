@@ -5,7 +5,7 @@ date: 2026-02-02T09:00:00Z
 lastmod: 2026-02-02T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C2"]
+categories: ["RAG & Vector Search"]
 tags: ["rag", "vector databases", "retrieval", "evaluation"]
 keywords: ["RAG pipeline checklist", "retrieval quality", "RAG evaluation"]
 cover:

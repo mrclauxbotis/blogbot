@@ -5,7 +5,7 @@ date: 2026-03-02T09:00:00Z
 lastmod: 2026-03-02T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C1"]
+categories: ["AI Agents"]
 tags: ["ai agents", "production", "guardrails", "llmops"]
 keywords: ["AI agents in production", "agent guardrails", "LLM failure modes"]
 cover:

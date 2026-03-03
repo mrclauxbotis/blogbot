@@ -5,7 +5,7 @@ date: 2026-02-23T09:00:00Z
 lastmod: 2026-02-23T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C3"]
+categories: ["AI Coding Tools"]
 tags: ["cursor", "copilot", "enterprise", "developer tools"]
 keywords: ["Cursor vs Copilot", "enterprise coding assistant", "AI IDE comparison"]
 cover:

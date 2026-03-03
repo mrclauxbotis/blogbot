@@ -5,7 +5,7 @@ date: 2026-02-09T09:00:00Z
 lastmod: 2026-02-09T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C4"]
+categories: ["Local LLMs"]
 tags: ["ollama", "local llm", "performance", "inference"]
 keywords: ["Ollama performance tuning", "local LLM latency", "Ollama optimization"]
 cover:

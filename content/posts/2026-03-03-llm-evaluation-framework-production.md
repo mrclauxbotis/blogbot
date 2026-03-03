@@ -5,7 +5,7 @@ date: 2026-01-26T09:00:00Z
 lastmod: 2026-01-26T09:00:00Z
 draft: false
 author: "The Editorial Team"
-categories: ["C5"]
+categories: ["AI Platform & MLOps"]
 tags: ["llm evaluation", "mlops", "quality", "release engineering"]
 keywords: ["LLM evaluation framework", "production LLM metrics", "LLM release gates"]
 cover:
