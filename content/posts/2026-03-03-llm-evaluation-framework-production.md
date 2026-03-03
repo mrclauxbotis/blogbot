@@ -1,8 +1,8 @@
 ---
 title: "LLM Evaluation Framework for Production: Metrics, Datasets, and Release Gates"
 description: "A practical LLM evaluation framework for production teams with offline/online metrics, golden datasets, and release gates."
-date: 2026-03-03T15:30:00Z
-lastmod: 2026-03-03T15:30:00Z
+date: 2026-03-03T08:30:00Z
+lastmod: 2026-03-03T08:30:00Z
 draft: false
 author: "The Editorial Team"
 categories: ["C5"]
