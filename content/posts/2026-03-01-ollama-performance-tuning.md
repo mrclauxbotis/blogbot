@@ -80,14 +80,26 @@ This gives leadership a clear basis to decide whether local-first remains econom
 
 ## Implementation snippets
 
-### Bash — basic latency probe
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="bash">Bash</button>
+    <button class="code-tab-btn" data-tab="py">Python</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="bash">
+
 ```bash
-time curl -s http://localhost:11434/api/generate   -d '{"model":"qwen2.5:7b","prompt":"healthcheck","stream":false}' >/dev/null
+time curl -s http://localhost:11434/api/generate \
+  -d '{"model":"qwen2.5:7b","prompt":"healthcheck","stream":false}' >/dev/null
 ```
 
-### Python — p95 calculator
+  </div>
+  <div class="code-tab-panel" data-tab="py">
+
 ```python
 import numpy as np
 latencies_ms = [120, 132, 118, 140, 150, 125]
-print("p95:", np.percentile(latencies_ms, 95))
+print(np.percentile(latencies_ms, 95))
 ```
+
+  </div>
+</div>

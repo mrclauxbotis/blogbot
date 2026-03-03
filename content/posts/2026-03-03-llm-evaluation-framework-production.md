@@ -124,13 +124,21 @@ Automate evaluation in CI/CD and treat failed quality gates as hard deployment b
 
 ## Implementation snippets
 
-### Python — release gate evaluation
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="py">Python</button>
+    <button class="code-tab-btn" data-tab="java">Java</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="py">
+
 ```python
 def release_gate(task_success, hallucination_rate, latency_p95_ms):
     return task_success >= 0.85 and hallucination_rate <= 0.02 and latency_p95_ms <= 2500
 ```
 
-### Java — canary rollback trigger
+  </div>
+  <div class="code-tab-panel" data-tab="java">
+
 ```java
 public class CanaryGate {
   public static boolean shouldRollback(double errorRate, double threshold) {
@@ -138,3 +146,6 @@ public class CanaryGate {
   }
 }
 ```
+
+  </div>
+</div>

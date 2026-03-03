@@ -1,1 +1,24 @@
-<!-- Reserved for analytics and ad scripts -->
+<script>
+(function(){
+  function initTabs(root){
+    root.querySelectorAll('.code-tabs').forEach(function(tabset){
+      var buttons = tabset.querySelectorAll('.code-tab-btn');
+      var panels = tabset.querySelectorAll('.code-tab-panel');
+      if(!buttons.length || !panels.length) return;
+      buttons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var target = btn.getAttribute('data-tab');
+          buttons.forEach(function(b){ b.classList.remove('active'); });
+          panels.forEach(function(p){ p.classList.remove('active'); });
+          btn.classList.add('active');
+          var panel = tabset.querySelector('.code-tab-panel[data-tab="'+target+'"]');
+          if(panel) panel.classList.add('active');
+        });
+      });
+    });
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ initTabs(document); });
+  } else { initTabs(document); }
+})();
+</script>

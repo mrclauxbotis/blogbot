@@ -73,17 +73,26 @@ No cost optimization ships without a quality backstop. If task success or custom
 
 ## Implementation snippets
 
-### Python — policy-based model routing
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="py">Python</button>
+    <button class="code-tab-btn" data-tab="scala">Scala</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="py">
+
 ```python
 def route_model(task_complexity: str) -> str:
-    if task_complexity == "high":
-        return "premium-model"
-    if task_complexity == "medium":
-        return "balanced-model"
+    if task_complexity == "high": return "premium-model"
+    if task_complexity == "medium": return "balanced-model"
     return "fast-cheap-model"
 ```
 
-### Scala — budget guard
+  </div>
+  <div class="code-tab-panel" data-tab="scala">
+
 ```scala
 def withinBudget(currentUsd: Double, maxUsd: Double): Boolean = currentUsd <= maxUsd
 ```
+
+  </div>
+</div>

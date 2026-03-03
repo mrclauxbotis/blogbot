@@ -55,15 +55,26 @@ Treat AI delivery as an engineering system with product accountability. Teams th
 
 ## Implementation snippets
 
-### TypeScript — simple capacity planner
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="ts">TypeScript</button>
+    <button class="code-tab-btn" data-tab="py">Python</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="ts">
+
 ```ts
 export function estimateRequiredWorkers(rps: number, perWorkerRps: number): number {
   return Math.ceil(rps / perWorkerRps);
 }
 ```
 
-### Python — cost per 1k requests
+  </div>
+  <div class="code-tab-panel" data-tab="py">
+
 ```python
 def cost_per_1k(total_usd: float, total_requests: int) -> float:
     return (total_usd / total_requests) * 1000 if total_requests else 0.0
 ```
+
+  </div>
+</div>

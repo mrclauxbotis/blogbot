@@ -142,3 +142,12 @@ nav.site-nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rg
 /* UX cleanup requested */
 .preview-label{display:none!important;}
 .progress-bar{display:none!important;}
+
+/* Multi-language tabbed code panel */
+.code-tabs{border:1px solid var(--border);border-radius:10px;overflow:hidden;background:#0f172a;margin:1.5rem 0}
+.code-tabs-nav{display:flex;flex-wrap:wrap;gap:0;background:#111827;border-bottom:1px solid #2a3448}
+.code-tab-btn{appearance:none;border:0;background:transparent;color:#9fb0cc;padding:10px 14px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
+.code-tab-btn.active{color:#fff;background:#1f2937}
+.code-tab-panel{display:none;padding:0}
+.code-tab-panel.active{display:block}
+.code-tab-panel pre{margin:0;border:0;border-radius:0;background:#0b1220}

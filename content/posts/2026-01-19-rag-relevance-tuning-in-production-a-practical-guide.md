@@ -55,16 +55,27 @@ Treat AI delivery as an engineering system with product accountability. Teams th
 
 ## Implementation snippets
 
-### Python — relevance thresholding
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="py">Python</button>
+    <button class="code-tab-btn" data-tab="java">Java</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="py">
+
 ```python
 def filter_by_relevance(hits, threshold=0.72):
     return [h for h in hits if h["score"] >= threshold]
 ```
 
-### Java — deterministic tie-breaker
+  </div>
+  <div class="code-tab-panel" data-tab="java">
+
 ```java
 hits.sort((a, b) -> {
   int byScore = Double.compare(b.score(), a.score());
   return byScore != 0 ? byScore : a.id().compareTo(b.id());
 });
 ```
+
+  </div>
+</div>

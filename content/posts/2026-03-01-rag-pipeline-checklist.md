@@ -94,7 +94,13 @@ A high-quality RAG program should show both better answer quality and reduced su
 
 ## Implementation snippets
 
-### Python — hybrid retrieval skeleton
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="py">Python</button>
+    <button class="code-tab-btn" data-tab="scala">Scala</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="py">
+
 ```python
 def hybrid_retrieve(query, dense_index, sparse_index, k=20):
     dense = dense_index.search(query, k=k)
@@ -103,15 +109,17 @@ def hybrid_retrieve(query, dense_index, sparse_index, k=20):
     return merged[:k]
 ```
 
-### Scala — simple rerank combiner
+  </div>
+  <div class="code-tab-panel" data-tab="scala">
+
 ```scala
 case class Hit(id: String, score: Double)
-
 def rerank(dense: Seq[Hit], sparse: Seq[Hit]): Seq[Hit] = {
-  (dense ++ sparse)
-    .groupBy(_.id)
+  (dense ++ sparse).groupBy(_.id)
     .map { case (id, hs) => Hit(id, hs.map(_.score).sum) }
-    .toSeq
-    .sortBy(- _.score)
+    .toSeq.sortBy(- _.score)
 }
 ```
+
+  </div>
+</div>

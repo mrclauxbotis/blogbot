@@ -98,19 +98,25 @@ Treat AI governance as an operating system for decision-making—not a documenta
 
 ## Implementation snippets
 
-### TypeScript — governance rule model
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="ts">TypeScript</button>
+    <button class="code-tab-btn" data-tab="scala">Scala</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="ts">
+
 ```ts
 type RiskTier = "low" | "medium" | "high";
-
-type GovernanceRule = {
-  workflow: string;
-  tier: RiskTier;
-  requiresHumanApproval: boolean;
-};
+type GovernanceRule = { workflow: string; tier: RiskTier; requiresHumanApproval: boolean };
 ```
 
-### Scala — release decision by gate results
+  </div>
+  <div class="code-tab-panel" data-tab="scala">
+
 ```scala
 case class Gates(offline: Boolean, staging: Boolean, canary: Boolean)
 def canRelease(g: Gates): Boolean = g.offline && g.staging && g.canary
 ```
+
+  </div>
+</div>

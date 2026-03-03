@@ -105,22 +105,31 @@ Without this split, teams often ship impressive demos that fail under production
 
 ## Implementation snippets
 
-### Python — guarded tool execution
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="py">Python</button>
+    <button class="code-tab-btn" data-tab="ts">TypeScript</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="py">
+
 ```python
 ALLOWED_TOOLS = {"search_docs", "create_ticket"}
 
 def execute_tool(name: str, args: dict):
     if name not in ALLOWED_TOOLS:
         raise ValueError(f"Tool not allowed: {name}")
-    # budget + schema checks would run here
     return run_tool(name, args)
 ```
 
-### TypeScript — action approval gate
+  </div>
+  <div class="code-tab-panel" data-tab="ts">
+
 ```ts
 type Action = { name: string; risk: "low" | "high" };
-
 export function requiresApproval(action: Action): boolean {
   return action.risk === "high";
 }
 ```
+
+  </div>
+</div>

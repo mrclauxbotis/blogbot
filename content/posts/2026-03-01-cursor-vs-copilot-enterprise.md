@@ -78,22 +78,23 @@ Pick the assistant that your platform team can govern at scale, not the one with
 
 ## Implementation snippets
 
-### TypeScript — scorecard model
-```ts
-interface Scorecard {
-  security: number;
-  productivity: number;
-  quality: number;
-  integration: number;
-  tco: number;
-}
+<div class="code-tabs">
+  <div class="code-tabs-nav">
+    <button class="code-tab-btn active" data-tab="ts">TypeScript</button>
+    <button class="code-tab-btn" data-tab="java">Java</button>
+  </div>
+  <div class="code-tab-panel active" data-tab="ts">
 
+```ts
+interface Scorecard { security:number; productivity:number; quality:number; integration:number; tco:number; }
 export function weightedScore(s: Scorecard): number {
-  return s.security * 0.30 + s.productivity * 0.25 + s.quality * 0.20 + s.integration * 0.15 + s.tco * 0.10;
+  return s.security*0.30 + s.productivity*0.25 + s.quality*0.20 + s.integration*0.15 + s.tco*0.10;
 }
 ```
 
-### Java — policy check example
+  </div>
+  <div class="code-tab-panel" data-tab="java">
+
 ```java
 public class RepoPolicy {
   public static boolean allowAssistantOnRepo(String repoSensitivity) {
@@ -101,3 +102,6 @@ public class RepoPolicy {
   }
 }
 ```
+
+  </div>
+</div>
