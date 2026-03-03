@@ -44,7 +44,7 @@ jobs:
     needs: verify-cloudflare-check-optional
     timeout-minutes: 8
     env:
-      BLOG_URL: https://blogbot.jc-maldo-be.workers.dev
+      BLOG_URL: https://blog.jidokacommunity.org
     steps:
       - name: Smoke test blog URL after push
         run: |
@@ -52,7 +52,7 @@ jobs:
           echo "Testing $BLOG_URL"
           for i in {1..36}; do
             code=$(curl -s -o /tmp/blog.html -w "%{http_code}" "$BLOG_URL" || true)
-            if [ "$code" = "200" ] && grep -qi "BlogBot" /tmp/blog.html; then
+            if [ "$code" = "200" ] && grep -Eqi "LLMCraft|LLM Craft|AI / LLM / GenAI" /tmp/blog.html; then
               echo "Smoke test passed on attempt $i"
               exit 0
             fi
