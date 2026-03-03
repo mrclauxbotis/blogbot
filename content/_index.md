@@ -1,7 +1,7 @@
 ---
-title: "BlogBot"
+title: "LLMCraft"
 date: 2026-03-01T06:00:00-05:00
 draft: false
 ---
 
-Welcome to BlogBot. First deployment bootstrap.
+Welcome to LLMCraft. First deployment bootstrap.
