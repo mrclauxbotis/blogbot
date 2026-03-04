@@ -151,3 +151,21 @@ nav.site-nav{position:sticky;top:0;z-index:100;height:var(--nav-h);background:rg
 .code-tab-panel{display:none;padding:0}
 .code-tab-panel.active{display:block}
 .code-tab-panel pre{margin:0;border:0;border-radius:0;background:#0b1220}
+
+
+/* Mobile image quality fixes */
+.related-card{display:flex;flex-direction:column}
+.related-thumb{height:180px;aspect-ratio:16/9;overflow:hidden}
+.related-thumb img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hero-thumb img,.small-thumb img,.cover-img{object-fit:cover;object-position:center}
+
+@media (max-width: 680px){
+  .related-grid{gap:12px}
+  .related-thumb{height:170px}
+  .related-body{padding:10px 12px}
+  .related-title{font-size:14px;line-height:1.35}
+  .small-thumb{height:140px}
+  .hero-thumb{height:190px}
+  .hero-thumb-sm{height:150px}
+  .cover-img{max-height:240px;border-radius:10px}
+}
