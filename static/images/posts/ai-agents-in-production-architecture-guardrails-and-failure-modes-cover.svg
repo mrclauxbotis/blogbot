@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#4152ea"/>
+      <stop offset="100%" stop-color="#bf5089"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="56" y="56" width="1088" height="518" rx="24" fill="#40592c" fill-opacity="0.45" stroke="rgba(255,255,255,.35)"/>
+  <circle cx="1040" cy="120" r="84" fill="rgba(255,255,255,.14)"/>
+  <circle cx="170" cy="500" r="120" fill="rgba(255,255,255,.10)"/>
+  <text x="96" y="170" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" opacity="0.92">LLMCraft</text>
+  <foreignObject x="96" y="210" width="980" height="280">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:Arial,Helvetica,sans-serif;color:white;font-size:56px;line-height:1.15;font-weight:800;">AI Agents in Production: Architecture, Guardrails, and Failure Modes</div>
+  </foreignObject>
+</svg>

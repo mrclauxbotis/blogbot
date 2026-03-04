@@ -9,7 +9,7 @@ categories: ["AI Coding Tools"]
 tags: ["copilot", "cursor", "developer productivity", "governance"]
 keywords: ["AI Coding Assistants in Enterprise SDLC: Adoption Without Chaos", "production AI", "CTO playbook"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
+  image: "/images/posts/ai-coding-assistants-in-enterprise-sdlc-adoption-without-chaos-cover.svg"
   alt: "AI Coding Assistants in Enterprise SDLC: Adoption Without Chaos"
 ---
 

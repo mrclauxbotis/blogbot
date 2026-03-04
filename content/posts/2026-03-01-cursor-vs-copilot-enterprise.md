@@ -9,8 +9,8 @@ categories: ["AI Coding Tools"]
 tags: ["cursor", "copilot", "enterprise", "developer tools"]
 keywords: ["Cursor vs Copilot", "enterprise coding assistant", "AI IDE comparison"]
 cover:
-  image: "/images/cursor-vs-copilot-cover.svg"
-  alt: "Cursor vs GitHub Copilot for enterprise teams"
+  image: "/images/posts/cursor-vs-github-copilot-for-enterprise-teams-2026-cover.svg"
+  alt: "Cursor vs GitHub Copilot for Enterprise Teams (2026)"
 ---
 
 For enterprise teams, the best coding assistant is the one that fits your governance model and engineering workflow.

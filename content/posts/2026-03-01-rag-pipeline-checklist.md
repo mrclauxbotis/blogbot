@@ -9,8 +9,8 @@ categories: ["RAG & Vector Search"]
 tags: ["rag", "vector databases", "retrieval", "evaluation"]
 keywords: ["RAG pipeline checklist", "retrieval quality", "RAG evaluation"]
 cover:
-  image: "/images/rag-pipeline-checklist-cover.svg"
-  alt: "RAG pipeline checklist from ingestion to answer"
+  image: "/images/posts/rag-pipeline-checklist-from-ingestion-to-reliable-answers-cover.svg"
+  alt: "RAG Pipeline Checklist: From Ingestion to Reliable Answers"
 ---
 
 If your RAG output is weak, start by debugging retrieval—not prompts.

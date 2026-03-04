@@ -9,8 +9,8 @@ categories: ["AI Platform & MLOps"]
 tags: ["ai governance", "risk management", "enterprise ai", "compliance"]
 keywords: ["AI governance", "enterprise AI controls", "AI operating model"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
-  alt: "AI governance operating model for enterprise teams"
+  image: "/images/posts/ai-governance-operating-model-for-enterprise-teams-cover.svg"
+  alt: "AI Governance Operating Model for Enterprise Teams"
 ---
 
 AI governance is no longer optional. For CTOs and CEOs, it is now a core operating capability that determines whether AI creates durable business value—or unmanaged risk.

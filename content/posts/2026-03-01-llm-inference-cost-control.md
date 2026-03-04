@@ -9,8 +9,8 @@ categories: ["AI Platform & MLOps"]
 tags: ["llmops", "cost optimization", "inference", "platform engineering"]
 keywords: ["LLM inference cost", "LLM routing", "SLO-aware AI"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
-  alt: "LLM inference cost control strategies"
+  image: "/images/posts/llm-inference-cost-control-practical-playbook-for-platform-teams-cover.svg"
+  alt: "LLM Inference Cost Control: Practical Playbook for Platform Teams"
 ---
 
 Most LLM cost overruns come from policy gaps, not model price alone.

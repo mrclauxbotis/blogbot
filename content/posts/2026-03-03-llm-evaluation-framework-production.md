@@ -9,8 +9,8 @@ categories: ["AI Platform & MLOps"]
 tags: ["llm evaluation", "mlops", "quality", "release engineering"]
 keywords: ["LLM evaluation framework", "production LLM metrics", "LLM release gates"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
-  alt: "LLM evaluation framework for production release decisions"
+  image: "/images/posts/llm-evaluation-framework-for-production-metrics-datasets-and-release-gates-cover.svg"
+  alt: "LLM Evaluation Framework for Production: Metrics, Datasets, and Release Gates"
 ---
 
 Shipping LLM features without an evaluation framework is how teams accumulate invisible risk. You may not notice regressions until support tickets spike, latency doubles, or users silently churn.

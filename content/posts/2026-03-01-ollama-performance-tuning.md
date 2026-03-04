@@ -9,8 +9,8 @@ categories: ["Local LLMs"]
 tags: ["ollama", "local llm", "performance", "inference"]
 keywords: ["Ollama performance tuning", "local LLM latency", "Ollama optimization"]
 cover:
-  image: "/images/ollama-tuning-cover.svg"
-  alt: "Ollama performance tuning for local LLM workloads"
+  image: "/images/posts/ollama-performance-tuning-7-tweaks-that-actually-matter-cover.svg"
+  alt: "Ollama Performance Tuning: 7 Tweaks That Actually Matter"
 ---
 
 If Ollama feels slow, profile where the time goes: load time, first token latency, and decode throughput are different bottlenecks.

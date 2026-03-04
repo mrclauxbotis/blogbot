@@ -9,8 +9,8 @@ categories: ["AI Agents"]
 tags: ["ai agents", "production", "guardrails", "llmops"]
 keywords: ["AI agents in production", "agent guardrails", "LLM failure modes"]
 cover:
-  image: "/images/ai-agents-production-cover.svg"
-  alt: "AI Agents in Production architecture and guardrails"
+  image: "/images/posts/ai-agents-in-production-architecture-guardrails-and-failure-modes-cover.svg"
+  alt: "AI Agents in Production: Architecture, Guardrails, and Failure Modes"
 ---
 
 Production agents fail less because of “model intelligence” and more because of poor system design. In practice, the highest-risk points are **tool access**, **unbounded retries**, and **missing observability**.

@@ -9,7 +9,7 @@ categories: ["RAG & Vector Search"]
 tags: ["rag", "retrieval", "vector search", "evaluation"]
 keywords: ["RAG Relevance Tuning in Production: A Practical Guide", "production AI", "CTO playbook"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
+  image: "/images/posts/rag-relevance-tuning-in-production-a-practical-guide-cover.svg"
   alt: "RAG Relevance Tuning in Production: A Practical Guide"
 ---
 

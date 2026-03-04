@@ -9,7 +9,7 @@ categories: ["Local LLMs"]
 tags: ["local llm", "inference", "ollama", "performance"]
 keywords: ["Operating Local LLMs at Scale: Capacity and Cost Tradeoffs", "production AI", "CTO playbook"]
 cover:
-  image: "/images/inference-cost-control-cover.svg"
+  image: "/images/posts/operating-local-llms-at-scale-capacity-and-cost-tradeoffs-cover.svg"
   alt: "Operating Local LLMs at Scale: Capacity and Cost Tradeoffs"
 ---
 
