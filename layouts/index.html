@@ -11,9 +11,13 @@
   {{ range $featured }}
   <article class="hero-card">
     <a href="{{ .RelPermalink }}" class="hero-thumb" aria-label="{{ .Title }}">
+      {{ with .Params.cover.image }}
+      <img src="{{ . }}" alt="{{ $.Params.cover.alt }}" style="width:100%;height:100%;object-fit:cover;display:block;" />
+      {{ else }}
       <div class="hero-thumb-diagram">
         <span class="mini-box">Input</span><span>→</span><span class="mini-box">Context</span><span>→</span><span class="mini-box">LLM</span><span>→</span><span class="mini-box">Output</span>
       </div>
+      {{ end }}
     </a>
     <div class="hero-body">
       <div class="hero-category">{{ index .Params.categories 0 }} · {{ .ReadingTime }} min read</div>
@@ -27,7 +31,9 @@
   <div style="display:grid;gap:16px;">
     {{ range $nextTwo }}
     <article class="hero-card">
-      <a href="{{ .RelPermalink }}" class="hero-thumb hero-thumb-sm"></a>
+      <a href="{{ .RelPermalink }}" class="hero-thumb hero-thumb-sm">
+      {{ with .Params.cover.image }}<img src="{{ . }}" alt="{{ $.Params.cover.alt }}" style="width:100%;height:100%;object-fit:cover;display:block;" />{{ end }}
+    </a>
       <div class="hero-body">
         <div class="hero-category">{{ index .Params.categories 0 }} · {{ .ReadingTime }} min read</div>
         <h3 class="hero-title hero-title-sm"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
@@ -43,7 +49,9 @@
 <div class="small-grid">
   {{ range $nextThree }}
   <article class="small-card">
-    <a href="{{ .RelPermalink }}" class="small-thumb"></a>
+    <a href="{{ .RelPermalink }}" class="small-thumb">
+      {{ with .Params.cover.image }}<img src="{{ . }}" alt="{{ $.Params.cover.alt }}" style="width:100%;height:100%;object-fit:cover;display:block;" />{{ end }}
+    </a>
     <div class="small-body">
       <div class="small-cat">{{ index .Params.categories 0 }}</div>
       <div class="small-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></div>
