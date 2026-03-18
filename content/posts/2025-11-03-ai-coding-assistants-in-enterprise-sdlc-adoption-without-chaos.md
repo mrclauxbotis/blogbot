@@ -76,3 +76,37 @@ Compliance failures erase productivity gains.
 
 ## Final recommendation
 Adopt coding assistants as governed infrastructure. Measure outcomes, enforce controls, and scale only when KPIs prove value.
+
+
+## 8) Architecture controls to protect core systems
+For critical repositories:
+- Require manual approval for AI‑generated changes
+- Enforce branch protection policies
+- Run security scanners on every AI‑assisted commit
+
+This preserves code quality while still benefiting from speed.
+
+## 9) Training and enablement
+Most failures are not technical. They are behavioral. Provide:
+- Prompting standards for teams
+- Guidance on validating AI‑generated code
+- Documentation on what data can be shared
+
+Well‑trained teams reduce downstream defects.
+
+## 10) Enterprise rollout risks and mitigations
+- **Risk**: rapid adoption without governance
+  **Mitigation**: policy gates in CI
+- **Risk**: compliance breaches
+  **Mitigation**: strict repo allowlists
+- **Risk**: degraded code quality
+  **Mitigation**: enhanced review workflow
+
+## 11) Executive reporting
+Provide monthly metrics:
+- Net time saved
+- Defect rate variance
+- Audit issues flagged
+- ROI vs tool cost
+
+Executives respond to outcomes, not tooling details.

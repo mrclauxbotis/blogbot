@@ -113,3 +113,36 @@ If ownership is vague, reliability degrades quickly.
 
 ## Final recommendation
 Operate agents like production services. Reliability comes from guardrails, observability, and disciplined rollout—not prompt experimentation.
+
+
+## 11) Reliability architecture patterns
+Reliable agent systems share three patterns:
+
+- **State machine orchestration** with explicit states and transitions
+- **Idempotent tool calls** to prevent duplicate side effects
+- **Circuit breakers** when downstream services fail
+
+These patterns limit blast radius and make incidents recoverable.
+
+## 12) Policy enforcement as code
+Treat policy rules as code with versioning and tests. Policies should be evaluated automatically before any high‑risk tool call. This turns subjective safety reviews into deterministic checks.
+
+## 13) Data access controls
+Enforce least‑privilege access per workflow. Agents should not have broad access by default. Tie access to role, ticket context, or business unit to prevent accidental leakage.
+
+## 14) Release governance for reliability
+Reliability must be enforced via release gates:
+- **Quality gate**: gold set pass rate
+- **Safety gate**: policy violations == 0 for critical actions
+- **Latency gate**: p95 < target
+
+If any gate fails, rollback. This policy should be non‑negotiable.
+
+## 15) Operational cadence
+Weekly reliability review should include:
+- Top 10 failure types
+- Root‑cause analysis progress
+- Fix ownership with dates
+- KPI delta since last release
+
+This keeps reliability from drifting after initial deployment.

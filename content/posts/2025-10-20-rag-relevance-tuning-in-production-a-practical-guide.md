@@ -131,3 +131,42 @@ These controls protect both your users and your organization.
 
 ## Final recommendation
 Relevance tuning is not a one‑off experiment. Treat it as a production quality program with contracts, metrics, and governance. That is how you achieve durable accuracy at scale.
+
+
+## 13) Segment-specific tuning that actually moves metrics
+Different intents need different tuning. For example:
+
+- **Policy questions** benefit from strict recency weighting and hard source allowlists.
+- **API questions** benefit from version filtering and metadata constraints.
+- **Troubleshooting questions** benefit from hybrid retrieval with stronger sparse weights.
+
+Treat segmentation as a first-class tuning dimension. If a segment underperforms, fix *that segment* rather than changing the entire system.
+
+## 14) Evaluation framework for leadership reviews
+A relevance program should report three dashboards:
+
+1. **Retrieval dashboard** (Recall@k, nDCG, source coverage)
+2. **Answer dashboard** (groundedness rate, citation coverage)
+3. **Business dashboard** (deflection, cost per resolution, CSAT)
+
+This keeps both technical and executive stakeholders aligned.
+
+## 15) Incident patterns and mitigations
+Common failures include:
+
+- **Stale answers** due to outdated indexing
+- **Wrong‑source answers** due to poor authority weighting
+- **Over‑confident answers** with no grounding
+
+Mitigations:
+- Reindex on a fixed cadence with change detection
+- Enforce authority scoring for critical sources
+- Reject responses with low citation coverage
+
+## 16) Practical rollout plan
+Week 1–2: baseline retrieval metrics and gold set.
+Week 3–4: hybrid retrieval + metadata filters.
+Week 5–6: add reranking and grounding checks.
+Week 7–8: executive KPI dashboard and operational review cadence.
+
+This plan delivers improvements without destabilizing production.
