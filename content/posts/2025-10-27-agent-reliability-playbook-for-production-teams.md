@@ -222,3 +222,19 @@ A weekly dashboard should include:
 - Cost per successful outcome
 
 This keeps reliability visible to executives and prevents drift.
+
+
+## Case study pattern (representative)
+A support‑automation agent was rolled out to 15% traffic with no tool budget caps. Within 48 hours, tool retries triggered a cascading failure in the ticketing system, doubling queue time. The fix was not a model change—it was **budget enforcement, retry backoff, and idempotent tool calls**. After implementing these controls, escalation rate dropped by 12% and incident rate fell to near zero. The key lesson: reliability is governed by system rules, not model intelligence.
+
+## Practical implementation steps
+1. Define tool allowlist and block everything else.
+2. Implement request IDs for all side‑effecting calls.
+3. Add budgets: max tool calls, max time per run, max tokens.
+4. Create a failure reason taxonomy and log it per run.
+5. Establish a weekly reliability review cadence.
+
+## FAQ for executives
+**Why do we still need humans in the loop?** Because high‑impact actions require accountability. Human review is a control, not a weakness.
+
+**Can we increase automation later?** Yes, but only after KPIs show stable reliability and low escalation costs.

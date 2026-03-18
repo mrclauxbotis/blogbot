@@ -189,3 +189,25 @@ A short quarterly memo should report:
 - ROI vs tooling cost
 
 Executives will fund outcomes, not novelty.
+
+
+## Pilot design that yields credible data
+A credible pilot uses 2–3 representative teams, clear baseline metrics, and measurable outcomes. Avoid pilots where teams self‑select only easy tasks. Compare:
+- PR throughput
+- Review time
+- Defect rate after merge
+
+If the pilot lacks metrics, it will not survive executive review.
+
+## Risk register for enterprise adoption
+- **Security risk**: AI suggests insecure patterns → enforce CI security scanners.
+- **Compliance risk**: data leakage → strict repo allowlists and redaction.
+- **Quality risk**: over‑acceptance → mandatory code review and linting.
+
+## Long‑term adoption strategy
+After the pilot, scale via a platform enablement team. Provide training, governance templates, and standard prompts. This avoids inconsistent usage patterns across teams and reduces long‑term support burden.
+
+## FAQ for CTOs
+**Will this reduce headcount?** Not directly. It reduces cycle time, which is more valuable in competitive markets.
+
+**How do we prevent “AI‑generated spaghetti”?** Enforce style guidelines and automated lint rules; require human review on critical code paths.

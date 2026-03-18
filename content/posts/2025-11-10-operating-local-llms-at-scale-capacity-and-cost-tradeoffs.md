@@ -167,3 +167,23 @@ Create a cost dashboard that includes:
 - Cost variance from forecast
 
 This makes capacity decisions a business conversation, not a surprise.
+
+
+## Capacity planning example
+Assume a target of 50 RPS with a p95 of 2 seconds. If a model handles 8 RPS per GPU, you need at least 7 GPUs for steady state and 2–3 more for peak bursts. Without buffer capacity, you will violate SLOs under load.
+
+## Operational staffing reality
+Local inference requires an ops team. Plan for:
+- model upgrades and regression testing
+- performance tuning cycles
+- security patching for underlying runtimes
+
+These costs must be included in any ROI calculation.
+
+## Governance for local stacks
+Local inference should still follow governance controls:
+- audit logs per request
+- policy enforcement
+- release gates for model updates
+
+Without these, local control becomes unmanaged risk.

@@ -145,3 +145,27 @@ Monthly governance reviews should include:
 - Cost impact of governance controls
 
 This makes governance tangible and defensible at the board level.
+
+
+## Vendor and model governance
+If you use multiple model providers, standardize:
+- model evaluation protocol
+- prompt/version control across providers
+- cost and latency monitoring by provider
+
+This prevents vendor sprawl and makes procurement decisions data‑driven.
+
+## Governance KPIs that should appear in board reviews
+- Policy violation rate (trend)
+- Audit exceptions resolved
+- Cost impact of governance controls
+- Incident rate reduction after control updates
+
+These KPIs make governance a business conversation rather than an engineering detail.
+
+## Implementation cadence
+- **Month 1:** define governance policy and ownership
+- **Month 2:** integrate policy enforcement into CI/CD
+- **Month 3:** launch KPI dashboards and executive reviews
+
+This cadence ensures governance becomes operational, not ceremonial.
