@@ -229,3 +229,7 @@ Every model update should pass a regression suite. Track output stability for cr
 
 ## Change‑freeze policies
 Define freeze windows during critical business periods. Without change‑freeze policies, even minor tuning can cause operational disruptions at the worst time.
+
+
+## Disaster recovery planning
+Local inference should have clear DR scenarios. Maintain snapshot backups of model artifacts and ensure you can restore service within a defined RTO. This reduces downtime risk during hardware failures.

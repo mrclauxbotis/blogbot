@@ -217,3 +217,7 @@ This ensures a consistent response rather than ad hoc decisions.
 
 ## Training and cultural adoption
 Governance only works when teams understand it. Provide short training modules and examples of compliant and non‑compliant behavior. This reduces friction and improves adherence.
+
+
+## Governance KPIs in quarterly planning
+Include governance KPIs in quarterly planning cycles so platform teams are funded to improve them. Without budget alignment, governance becomes symbolic rather than effective.

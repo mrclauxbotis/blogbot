@@ -239,3 +239,7 @@ Once the pilot proves value, scale by creating a platform enablement group that 
 
 ## Audit and compliance readiness
 Document how AI‑assisted code is reviewed, approved, and merged. For regulated industries, store logs of AI usage per repository and maintain evidence that the same security checks applied to AI‑assisted changes as to human‑written code.
+
+
+## Post‑deployment monitoring
+Track ongoing usage patterns and correlate them with defect trends. If quality drifts upward after adoption, tighten review policies or adjust allowed workflows.
