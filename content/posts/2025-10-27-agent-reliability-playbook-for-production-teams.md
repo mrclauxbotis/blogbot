@@ -194,3 +194,31 @@ A: Hard release gates plus ongoing monitoring tied to KPIs.
 - [ ] Quality and safety gates enforced
 - [ ] Cost monitoring and budgets configured
 - [ ] Rollback playbook tested
+
+
+## Reliability engineering details that matter
+### Idempotent tool calls
+Any side‑effecting tool must be idempotent. If a retry happens, the action must not double‑charge a customer or create duplicate tickets. Introduce request IDs and deduplicate by id.
+
+### State machines over free‑form loops
+Use explicit states (Plan → Execute → Verify → Complete). This makes failures observable and avoids infinite loops. It also makes audits simpler because each state has a defined set of allowed actions.
+
+### Safety budgets
+Budget both *time* and *tool calls*. For example, max 3 tool calls, max 30 seconds per run. If exceeded, terminate and escalate.
+
+## Quality gates for production
+A practical gate policy:
+- **Offline**: gold set pass rate ≥ 85%
+- **Staging**: 0 critical policy violations
+- **Canary**: escalation rate ≤ baseline + 5%
+
+If a gate fails, rollback automatically and open an incident ticket.
+
+## Example reliability dashboard
+A weekly dashboard should include:
+- Success rate by workflow
+- p95 latency by tool
+- Top 10 failure reasons
+- Cost per successful outcome
+
+This keeps reliability visible to executives and prevents drift.

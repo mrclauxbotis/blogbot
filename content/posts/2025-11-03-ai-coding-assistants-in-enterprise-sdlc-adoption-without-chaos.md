@@ -158,3 +158,34 @@ A: Hard release gates plus ongoing monitoring tied to KPIs.
 - [ ] Quality and safety gates enforced
 - [ ] Cost monitoring and budgets configured
 - [ ] Rollback playbook tested
+
+
+## Integration patterns that reduce risk
+### Prompt policy templates
+Define approved prompt patterns for security‑sensitive tasks. This reduces accidental leakage and creates consistent outputs across teams.
+
+### Code review workflow adjustments
+Require a reviewer for any AI‑generated code touching authentication, payments, or infrastructure. This mirrors existing change‑control practices.
+
+## Data handling policy (must be explicit)
+Define what can be sent to the assistant:
+- Allowed: public code, internal library references
+- Restricted: customer data, credentials, proprietary secrets
+
+This policy should be enforced with pre‑commit checks where possible.
+
+## Vendor evaluation criteria
+Beyond feature lists, evaluate:
+- Data retention policies
+- Audit logging depth
+- Enterprise SLA and support maturity
+
+These are the dimensions that matter at scale, not small UI differences.
+
+## Executive communication
+A short quarterly memo should report:
+- Productivity delta by team
+- Security incident count linked to AI usage
+- ROI vs tooling cost
+
+Executives will fund outcomes, not novelty.

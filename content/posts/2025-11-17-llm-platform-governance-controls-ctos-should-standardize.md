@@ -115,3 +115,33 @@ A: Hard release gates plus ongoing monitoring tied to KPIs.
 - [ ] Quality and safety gates enforced
 - [ ] Cost monitoring and budgets configured
 - [ ] Rollback playbook tested
+
+
+## Policy enforcement as code
+Policies should be treated like software artifacts:
+- Versioned
+- Tested
+- Reviewed
+- Deployed with rollback capability
+
+This makes governance reliable and auditable.
+
+## Release gates tied to governance
+Governance should enforce release gates. If a model update increases policy violations or reduces groundedness, release must halt. This is the same discipline used for security and performance.
+
+## Operational audit trail
+Maintain an audit trail with:
+- Model versions
+- Prompt versions
+- Tool call logs
+- Source documents used
+
+Audits become straightforward when traceability is built in.
+
+## Executive communication
+Monthly governance reviews should include:
+- Incident summary and root causes
+- Compliance exceptions and remediation
+- Cost impact of governance controls
+
+This makes governance tangible and defensible at the board level.

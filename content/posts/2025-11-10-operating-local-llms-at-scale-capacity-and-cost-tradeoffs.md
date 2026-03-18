@@ -134,3 +134,36 @@ A: Hard release gates plus ongoing monitoring tied to KPIs.
 - [ ] Quality and safety gates enforced
 - [ ] Cost monitoring and budgets configured
 - [ ] Rollback playbook tested
+
+
+## Infrastructure sizing guidance
+A practical sizing method:
+1. Profile average tokens per request
+2. Calculate concurrency targets
+3. Allocate GPU capacity to meet p95 latency targets
+
+If you cannot meet SLOs without over‑provisioning, hosted APIs may be more cost‑effective.
+
+## Observability for local inference
+Track:
+- GPU utilization per model
+- Memory fragmentation and OOM events
+- Queue depth and time‑in‑queue
+
+These indicators predict reliability issues before outages occur.
+
+## Reliability fallback strategy
+Always have a fallback path:
+- Smaller model for overload conditions
+- Hosted API as overflow
+- Graceful degradation to summary mode
+
+This prevents complete downtime when capacity is exceeded.
+
+## Organizational cost transparency
+Create a cost dashboard that includes:
+- Total inference cost per team
+- Cost per successful task
+- Cost variance from forecast
+
+This makes capacity decisions a business conversation, not a surprise.
