@@ -203,3 +203,15 @@ A local stack is justified only when it delivers one of the following:
 - Significant latency improvements for key workflows
 
 If none apply, hosted APIs usually provide better flexibility.
+
+
+## Performance tuning guidance
+Measure first-token latency separately from throughput. Often, the first token is dominated by model load time, while throughput is dominated by batch sizing and GPU saturation. Tuning without separating these leads to false optimizations.
+
+## Risk mitigation strategy
+Local deployments must plan for:
+- firmware and driver updates
+- security patch cycles
+- model regression testing
+
+This makes local inference a long‑term operational commitment, not a one‑time project.

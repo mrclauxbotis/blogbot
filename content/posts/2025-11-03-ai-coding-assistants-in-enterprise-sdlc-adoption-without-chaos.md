@@ -224,3 +224,10 @@ After the pilot, scale via a platform enablement team. Provide training, governa
 “AI coding assistants are permitted in approved repositories. All AI‑assisted changes must pass CI security scans and human review when touching authentication, payments, or infrastructure. Data classified as confidential must not be shared with external models.”
 
 This simple statement clarifies expectations and reduces compliance ambiguity.
+
+
+## Architecture view for tech leads
+Treat the assistant as part of your developer platform. Centralize configuration, apply global policy controls, and ensure telemetry captures where AI is used. This allows platform teams to detect risk patterns early and guide adoption with data.
+
+## Change management
+Adoption fails when policy is unclear. Communicate what is allowed, provide examples, and enforce guardrails in CI. Most developers will comply when the rules are explicit and the tooling makes the right path easy.

@@ -180,3 +180,20 @@ This cadence ensures governance becomes operational, not ceremonial.
 
 ## Practical governance charter (one paragraph)
 “AI systems must meet defined quality, safety, and cost thresholds before release. All model and prompt changes are versioned and auditable. Policy violations trigger automatic rollback. Executive leadership receives quarterly KPI reviews on incidents, compliance exceptions, and cost impact.”
+
+
+## Control integration with delivery pipelines
+Embed governance checks into CI/CD so they are unavoidable. Examples:
+- Block releases if policy violations exceed threshold
+- Require approval for changes to high‑risk prompts
+- Enforce audit logging in production by default
+
+This turns governance from advisory to enforceable.
+
+## Organizational change risk
+Governance will be resisted if it feels slow. Mitigate by:
+- automating checks
+- publishing clear turnaround SLAs
+- showing how governance reduced incidents
+
+When teams see fewer incidents, governance adoption improves quickly.
