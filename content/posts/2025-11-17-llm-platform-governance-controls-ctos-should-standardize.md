@@ -225,3 +225,7 @@ Include governance KPIs in quarterly planning cycles so platform teams are funde
 
 ## Cross‑functional alignment
 Governance must align product, security, and engineering priorities. Use quarterly steering meetings to resolve conflicts and update policies in response to new risks or regulations.
+
+
+## Regulatory readiness
+If your organization operates in multiple jurisdictions, document how governance controls align with local regulations. This pre‑work speeds audits and reduces legal risk when regulators request evidence.

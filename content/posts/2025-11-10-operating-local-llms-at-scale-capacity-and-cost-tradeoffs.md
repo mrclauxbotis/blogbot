@@ -237,3 +237,7 @@ Local inference should have clear DR scenarios. Maintain snapshot backups of mod
 
 ## Cost forecasting
 Forecast cost using conservative utilization assumptions. If your forecast only works at perfect utilization, actual costs will be higher. Build a buffer into the model to reflect real‑world variability.
+
+
+## Vendor and supply chain considerations
+Plan for GPU supply variability. If your strategy depends on rapid capacity expansion, pre‑negotiate supplier contracts and maintain a small inventory buffer. This avoids months of degraded performance during demand spikes.
