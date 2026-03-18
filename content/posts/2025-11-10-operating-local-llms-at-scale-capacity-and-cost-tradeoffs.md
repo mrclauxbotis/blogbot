@@ -187,3 +187,19 @@ Local inference should still follow governance controls:
 - release gates for model updates
 
 Without these, local control becomes unmanaged risk.
+
+
+## Checklist for stable local operations
+- [ ] Model registry with version and rollback plan
+- [ ] Benchmark suite for latency and throughput
+- [ ] Alerting on GPU utilization and queue depth
+- [ ] Fallback routing to smaller models under load
+- [ ] Monthly cost review with finance
+
+## Executive decision criteria
+A local stack is justified only when it delivers one of the following:
+- Regulatory compliance unavailable with hosted providers
+- Lower cost per successful task at scale
+- Significant latency improvements for key workflows
+
+If none apply, hosted APIs usually provide better flexibility.

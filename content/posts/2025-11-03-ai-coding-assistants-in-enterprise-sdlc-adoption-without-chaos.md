@@ -211,3 +211,16 @@ After the pilot, scale via a platform enablement team. Provide training, governa
 **Will this reduce headcount?** Not directly. It reduces cycle time, which is more valuable in competitive markets.
 
 **How do we prevent “AI‑generated spaghetti”?** Enforce style guidelines and automated lint rules; require human review on critical code paths.
+
+
+## Implementation checklist
+- [ ] Define allowed repositories and sensitivity tiers
+- [ ] Enable mandatory security scanning on AI‑assisted commits
+- [ ] Add attribution tags for AI‑generated changes
+- [ ] Establish executive KPI review cadence
+- [ ] Provide training and standard prompt playbooks
+
+## Example policy statement
+“AI coding assistants are permitted in approved repositories. All AI‑assisted changes must pass CI security scans and human review when touching authentication, payments, or infrastructure. Data classified as confidential must not be shared with external models.”
+
+This simple statement clarifies expectations and reduces compliance ambiguity.

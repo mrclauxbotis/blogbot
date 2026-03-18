@@ -169,3 +169,14 @@ These KPIs make governance a business conversation rather than an engineering de
 - **Month 3:** launch KPI dashboards and executive reviews
 
 This cadence ensures governance becomes operational, not ceremonial.
+
+
+## Governance checklist for platform readiness
+- [ ] Model registry and lifecycle policy
+- [ ] Prompt + policy version control
+- [ ] Audit logging by default
+- [ ] Release gates tied to quality + safety
+- [ ] Executive KPI dashboard in place
+
+## Practical governance charter (one paragraph)
+“AI systems must meet defined quality, safety, and cost thresholds before release. All model and prompt changes are versioned and auditable. Policy violations trigger automatic rollback. Executive leadership receives quarterly KPI reviews on incidents, compliance exceptions, and cost impact.”

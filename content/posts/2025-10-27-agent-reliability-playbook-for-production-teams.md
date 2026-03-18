@@ -238,3 +238,12 @@ A support‑automation agent was rolled out to 15% traffic with no tool budget c
 **Why do we still need humans in the loop?** Because high‑impact actions require accountability. Human review is a control, not a weakness.
 
 **Can we increase automation later?** Yes, but only after KPIs show stable reliability and low escalation costs.
+
+
+## Additional operational controls
+Include two more controls that consistently improve reliability:
+
+- **Schema validation** on tool inputs and outputs (reject malformed calls)
+- **Rate limiting** per user/session to prevent abuse and overload
+
+These controls reduce edge‑case failures that become production incidents.
