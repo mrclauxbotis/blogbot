@@ -233,3 +233,7 @@ Define freeze windows during critical business periods. Without change‑freeze 
 
 ## Disaster recovery planning
 Local inference should have clear DR scenarios. Maintain snapshot backups of model artifacts and ensure you can restore service within a defined RTO. This reduces downtime risk during hardware failures.
+
+
+## Cost forecasting
+Forecast cost using conservative utilization assumptions. If your forecast only works at perfect utilization, actual costs will be higher. Build a buffer into the model to reflect real‑world variability.

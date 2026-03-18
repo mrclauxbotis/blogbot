@@ -221,3 +221,7 @@ Governance only works when teams understand it. Provide short training modules a
 
 ## Governance KPIs in quarterly planning
 Include governance KPIs in quarterly planning cycles so platform teams are funded to improve them. Without budget alignment, governance becomes symbolic rather than effective.
+
+
+## Cross‑functional alignment
+Governance must align product, security, and engineering priorities. Use quarterly steering meetings to resolve conflicts and update policies in response to new risks or regulations.
