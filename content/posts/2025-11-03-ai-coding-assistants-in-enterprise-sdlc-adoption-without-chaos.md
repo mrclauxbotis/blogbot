@@ -235,3 +235,7 @@ Adoption fails when policy is unclear. Communicate what is allowed, provide exam
 
 ## Post‑pilot scaling plan
 Once the pilot proves value, scale by creating a platform enablement group that owns training, policy updates, and tooling standards. This avoids fragmentation where each team invents its own practices.
+
+
+## Audit and compliance readiness
+Document how AI‑assisted code is reviewed, approved, and merged. For regulated industries, store logs of AI usage per repository and maintain evidence that the same security checks applied to AI‑assisted changes as to human‑written code.

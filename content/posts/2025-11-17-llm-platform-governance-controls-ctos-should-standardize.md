@@ -204,3 +204,16 @@ Governance is a strategic capability. When an audit occurs or a regulator reques
 
 ## Continuous improvement loop
 Governance is never “done.” Use incident postmortems to update policies, adjust release gates, and improve audit data collection. Treat governance updates like product features with release notes.
+
+
+## Practical incident workflow
+When a governance breach occurs, route to a predefined incident workflow:
+- identify the policy violated
+- freeze impacted workflows
+- initiate rollback or safe fallback
+- conduct a postmortem with root‑cause and remediation
+
+This ensures a consistent response rather than ad hoc decisions.
+
+## Training and cultural adoption
+Governance only works when teams understand it. Provide short training modules and examples of compliant and non‑compliant behavior. This reduces friction and improves adherence.

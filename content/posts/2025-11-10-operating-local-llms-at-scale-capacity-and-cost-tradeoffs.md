@@ -222,3 +222,10 @@ Avoid mixing batch and interactive workloads on the same inference pool. Separat
 
 ## Hardware lifecycle management
 Plan for GPU lifecycle events and procurement lead times. If you wait for capacity shortages before ordering hardware, your team will spend months in a degraded state.
+
+
+## Governance for model updates
+Every model update should pass a regression suite. Track output stability for critical workflows, and do not deploy updates if accuracy or latency regresses. Local control is only valuable if you can maintain quality discipline.
+
+## Change‑freeze policies
+Define freeze windows during critical business periods. Without change‑freeze policies, even minor tuning can cause operational disruptions at the worst time.
