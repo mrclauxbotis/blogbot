@@ -233,3 +233,7 @@ If your organization operates in multiple jurisdictions, document how governance
 
 ## Evidence collection in audits
 During audits, you will be asked for proof of controls. Maintain a quarterly export of model versions, policy rules, and incident logs. This turns audit requests into routine reporting rather than a fire drill.
+
+
+## Practical governance scorecard
+Create a quarterly scorecard with graded ratings (A–D) for policy coverage, audit readiness, incident response maturity, and cost visibility. This gives leadership a simple view of progress and highlights where investment is needed.
