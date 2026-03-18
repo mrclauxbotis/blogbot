@@ -197,3 +197,10 @@ Governance will be resisted if it feels slow. Mitigate by:
 - showing how governance reduced incidents
 
 When teams see fewer incidents, governance adoption improves quickly.
+
+
+## Executive decision support
+Governance is a strategic capability. When an audit occurs or a regulator requests evidence, you should be able to produce clear logs of model versions, prompts, and decision rationale. This is the difference between a manageable audit and a crisis.
+
+## Continuous improvement loop
+Governance is never “done.” Use incident postmortems to update policies, adjust release gates, and improve audit data collection. Treat governance updates like product features with release notes.

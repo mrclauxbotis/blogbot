@@ -231,3 +231,7 @@ Treat the assistant as part of your developer platform. Centralize configuration
 
 ## Change management
 Adoption fails when policy is unclear. Communicate what is allowed, provide examples, and enforce guardrails in CI. Most developers will comply when the rules are explicit and the tooling makes the right path easy.
+
+
+## Post‑pilot scaling plan
+Once the pilot proves value, scale by creating a platform enablement group that owns training, policy updates, and tooling standards. This avoids fragmentation where each team invents its own practices.

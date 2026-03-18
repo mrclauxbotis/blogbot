@@ -215,3 +215,10 @@ Local deployments must plan for:
 - model regression testing
 
 This makes local inference a long‑term operational commitment, not a one‑time project.
+
+
+## Scheduling and workload isolation
+Avoid mixing batch and interactive workloads on the same inference pool. Separate pools allow you to meet p95 latency targets for interactive workloads while still handling large batch jobs efficiently.
+
+## Hardware lifecycle management
+Plan for GPU lifecycle events and procurement lead times. If you wait for capacity shortages before ordering hardware, your team will spend months in a degraded state.
