@@ -229,3 +229,7 @@ Governance must align product, security, and engineering priorities. Use quarter
 
 ## Regulatory readiness
 If your organization operates in multiple jurisdictions, document how governance controls align with local regulations. This pre‑work speeds audits and reduces legal risk when regulators request evidence.
+
+
+## Evidence collection in audits
+During audits, you will be asked for proof of controls. Maintain a quarterly export of model versions, policy rules, and incident logs. This turns audit requests into routine reporting rather than a fire drill.

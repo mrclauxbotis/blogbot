@@ -241,3 +241,7 @@ Forecast cost using conservative utilization assumptions. If your forecast only 
 
 ## Vendor and supply chain considerations
 Plan for GPU supply variability. If your strategy depends on rapid capacity expansion, pre‑negotiate supplier contracts and maintain a small inventory buffer. This avoids months of degraded performance during demand spikes.
+
+
+## Example capacity incident (what to learn)
+A team sized for average traffic but not for end‑of‑quarter spikes. Latency doubled and the local cluster thrashed due to queue growth. After adding burst capacity and a fallback to a smaller model, stability returned within two weeks. The lesson: plan for peak demand, not average demand.
