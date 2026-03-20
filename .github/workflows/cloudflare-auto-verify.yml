@@ -19,29 +19,26 @@ jobs:
         uses: actions/github-script@v7
         with:
           script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const ref = context.sha;
-
-            const checks = await github.rest.checks.listForRef({
-              owner,
-              repo,
-              ref,
-              per_page: 100,
-            });
-
-            const cloudflareChecks = checks.data.check_runs.filter(c => /cloudflare/i.test(c.name));
-            if (cloudflareChecks.length === 0) {
-              core.notice('No Cloudflare check run published for this commit. Continuing with live smoke test.');
-              return;
+            try {
+              const owner = context.repo.owner;
+              const repo = context.repo.repo;
+              const ref = context.sha;
+              const checks = await github.rest.checks.listForRef({ owner, repo, ref, per_page: 100 });
+              const cloudflareChecks = checks.data.check_runs.filter(c => /cloudflare/i.test(c.name));
+              if (cloudflareChecks.length === 0) {
+                core.notice('No Cloudflare check run published for this commit.');
+                return;
+              }
+              const summary = cloudflareChecks.map(c => `${c.name}: ${c.status}/${c.conclusion ?? 'n/a'}`).join(' | ');
+              core.info(`Cloudflare checks found -> ${summary}`);
+            } catch (err) {
+              core.warning(`Cloudflare check probe failed (non-blocking): ${err.message}`);
             }
-
-            const summary = cloudflareChecks.map(c => `${c.name}: ${c.status}/${c.conclusion ?? 'n/a'}`).join(' | ');
-            core.info(`Cloudflare checks found -> ${summary}`);
 
   smoke-test-live-url:
     runs-on: ubuntu-latest
     needs: verify-cloudflare-check-optional
+    if: always()
     timeout-minutes: 8
     env:
       BLOG_URL: https://blog.jidokacommunity.org
