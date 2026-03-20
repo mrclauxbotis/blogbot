@@ -144,3 +144,10 @@ This turns local inference into a compliant platform.
 
 ## 23) Executive summary
 Local inference is a strategic decision. If you cannot maintain operational discipline, hosted APIs are safer.
+
+
+## 24) Performance tuning principles
+Separate first‑token latency from throughput. Many systems optimize throughput but still feel slow to users because first token latency is unaddressed. Fixing this often yields the biggest perceived improvement.
+
+## 25) Capacity risk controls
+Define automatic throttling or degradation when queues exceed thresholds. This prevents total collapse during spikes.

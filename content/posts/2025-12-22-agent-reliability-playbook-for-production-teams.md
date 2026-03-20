@@ -119,3 +119,10 @@ Every incident should create an action item that updates policy, tooling, or doc
 
 ## 21) Executive narrative
 Executives need clear explanations of reliability impact: fewer incidents, lower support load, and predictable cost. When reliability is framed this way, it becomes a strategic investment rather than a technical expense.
+
+
+## 22) Compliance alignment
+If your agents interact with regulated workflows, document compliance controls and perform quarterly audits. This reduces regulatory risk and keeps leadership confident in scaling.
+
+## 23) Quarterly reliability review
+Include a quarterly review with leadership to evaluate KPI trends, incident severity, and cost per task. This keeps reliability aligned with business goals.

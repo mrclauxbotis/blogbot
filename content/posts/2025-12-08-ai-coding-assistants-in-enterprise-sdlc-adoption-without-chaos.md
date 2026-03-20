@@ -179,3 +179,15 @@ This keeps adoption financially defensible.
 
 ## 25) Executive summary
 AI coding assistants can be a strategic advantage only when governed. Policy enforcement, KPI reporting, and training make adoption sustainable rather than chaotic.
+
+
+## 26) Change management communications
+Adoption fails when teams don’t understand the rules. Communicate a one‑page policy, explain why each rule exists, and provide quick reference examples. Clear communication reduces shadow usage.
+
+## 27) Metrics‑driven governance
+Quarterly reviews should include:
+- AI usage by repo
+- Defect rates by repo
+- Security issues linked to AI usage
+
+This keeps adoption honest and measurable.

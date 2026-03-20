@@ -216,3 +216,21 @@ Without organizational readiness, technical reliability will still degrade under
 
 ## 28) Long‑term governance
 Reliability is continuous. Create a quarterly review where executives approve new workflows based on KPI performance. This ensures reliability remains aligned with business risk tolerance.
+
+
+## 29) Budget policy examples
+A realistic policy example:
+- Max 3 tool calls per run
+- Max 20 seconds per run
+- Max 2 model retries
+- Max $0.08 per run
+
+These thresholds should be configurable by workflow. Critical workflows may use higher budgets, but only with explicit approval.
+
+## 30) Reliability SLOs for agents
+Define SLOs similar to microservices:
+- p95 latency
+- error rate
+- successful completion rate
+
+Tie SLOs to incident escalation and release gating.
