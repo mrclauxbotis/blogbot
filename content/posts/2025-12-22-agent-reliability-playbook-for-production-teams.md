@@ -95,3 +95,27 @@ Track not just errors, but *near misses*. Near‑miss tracking often predicts fa
 
 ## 17) Governance enforcement
 Reliability gates should be enforceable in CI/CD. If the system can bypass them, they will eventually be bypassed.
+
+
+## 18) Reliability program structure
+A reliability program should be funded and staffed. Recommended roles:
+- Reliability owner
+- Platform lead for tooling and telemetry
+- Security liaison for policy enforcement
+- Product owner for workflow acceptance criteria
+
+Without these roles, reliability becomes an afterthought.
+
+## 19) Testing strategy
+Adopt three layers of testing:
+- unit tests for tool wrappers
+- integration tests for workflows
+- simulation tests for adversarial inputs
+
+This reduces surprise failures in production.
+
+## 20) Incident learnings loop
+Every incident should create an action item that updates policy, tooling, or documentation. This turns failures into long‑term improvements.
+
+## 21) Executive narrative
+Executives need clear explanations of reliability impact: fewer incidents, lower support load, and predictable cost. When reliability is framed this way, it becomes a strategic investment rather than a technical expense.

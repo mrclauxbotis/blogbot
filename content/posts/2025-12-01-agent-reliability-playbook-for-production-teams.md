@@ -184,3 +184,35 @@ Reliability depends on culture. Teams must treat agent incidents like production
 Phase 1: stable pilot with hard guardrails.  
 Phase 2: integrate governance into CI/CD.  
 Phase 3: scale to additional workflows with strict KPIs.
+
+
+## 25) Detailed rollout blueprint
+A reliable rollout uses controlled exposure and measurable gates. A practical blueprint:
+
+- **Week 1–2 (Sandbox):** internal users only, tight tool allowlists, all actions logged.
+- **Week 3–4 (Canary):** 5–10% of production traffic, success rate target ≥ 85%, escalation rate within +5% of baseline.
+- **Week 5–6 (Expand):** increase to 50% traffic only if cost per task stays within budget.
+- **Week 7–8 (Full):** complete rollout with automated rollback triggers.
+
+This blueprint provides structure and makes rollback decisions objective.
+
+## 26) Reliability test suite
+Build a test suite that simulates production risks:
+- Tool timeouts
+- Invalid tool arguments
+- Data access denials
+- Prompt injection attempts
+
+If the system fails any test, block release until fixed. This keeps safety consistent.
+
+## 27) Organizational readiness checklist
+- Executive sponsor confirmed
+- Incident owner assigned
+- On‑call rotation defined
+- Policy changes documented
+- Rollback playbook tested
+
+Without organizational readiness, technical reliability will still degrade under pressure.
+
+## 28) Long‑term governance
+Reliability is continuous. Create a quarterly review where executives approve new workflows based on KPI performance. This ensures reliability remains aligned with business risk tolerance.

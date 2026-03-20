@@ -109,3 +109,38 @@ Stage 3: predictive scaling with cost forecasting.
 
 ## 18) Executive alignment
 Local inference should be reviewed quarterly with finance. If cost per successful task rises above API benchmarks, revisit the strategy.
+
+
+## 19) Capacity planning detail
+A disciplined capacity model includes:
+- expected peak concurrency
+- model throughput at target context sizes
+- headroom for degradation and retries
+
+Over‑provisioning by 20–30% is normal in stable systems. Under‑provisioning leads to unstable p95 latency and user churn.
+
+## 20) Cost modeling detail
+Include **hidden costs** in your ROI model:
+- on‑call staffing
+- monitoring and logging infrastructure
+- regression testing time
+
+Local inference can look cheaper on raw compute but more expensive on total ownership.
+
+## 21) Failure modes to plan for
+- GPU memory fragmentation
+- model load time spikes
+- queue growth during demand surges
+
+Each failure mode should have an explicit mitigation and a tested fallback.
+
+## 22) Governance and audit
+Even local models must meet audit requirements. Ensure:
+- request logging
+- access controls
+- prompt/version tracking
+
+This turns local inference into a compliant platform.
+
+## 23) Executive summary
+Local inference is a strategic decision. If you cannot maintain operational discipline, hosted APIs are safer.

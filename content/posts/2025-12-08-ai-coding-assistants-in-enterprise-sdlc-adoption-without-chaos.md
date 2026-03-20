@@ -151,3 +151,31 @@ Document how AI outputs and prompts are stored. Some vendors retain data; others
 - CI scanning configured
 - ROI dashboard active
 - Security sign‑off complete
+
+
+## 22) Security architecture alignment
+Enterprise assistants should integrate with existing security architecture:
+- SSO/SCIM for identity control
+- DLP or redaction for sensitive data
+- Central policy enforcement for repo access
+
+If an assistant bypasses security architecture, it should be blocked from production usage.
+
+## 23) Quality assurance integration
+Integrate assistants into QA processes:
+- Require test generation for AI‑assisted code
+- Enforce code coverage thresholds
+- Track AI‑generated code defect rates separately
+
+This creates visibility into quality impact and prevents silent regression.
+
+## 24) Cost and procurement strategy
+AI assistants are recurring SaaS costs. Procurement should require:
+- Clear ROI targets
+- Exit plan if KPIs degrade
+- Contract terms aligned with compliance requirements
+
+This keeps adoption financially defensible.
+
+## 25) Executive summary
+AI coding assistants can be a strategic advantage only when governed. Policy enforcement, KPI reporting, and training make adoption sustainable rather than chaotic.
