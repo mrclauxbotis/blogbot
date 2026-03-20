@@ -177,3 +177,15 @@ Every change to retrieval should be reviewed. In regulated domains, require sign
 
 ## 23) Executive summary
 Relevance tuning is not a one‑off optimization. It is a discipline combining data governance, retrieval strategy, and business KPIs. Organizations that treat it as an ongoing program see stable accuracy and cost control at scale.
+
+
+## 24) Worked example: improving a policy QA workflow
+A policy QA workflow had a 62% success rate because it often retrieved outdated PDFs. After adding **recency weighting** and **source allowlists**, success improved to 84% without changing the model. The team also added a rule that required at least one official policy citation; answers without it were rejected. This change reduced escalations by 18% in three weeks.
+
+## 25) Executive scorecard template
+Use a scorecard with three bands:
+- **Green**: relevance meets contract on all priority intents
+- **Yellow**: relevance fails on low‑risk intents only
+- **Red**: relevance fails on priority intents or compliance workflows
+
+This scorecard allows executives to understand when the system is safe to scale.

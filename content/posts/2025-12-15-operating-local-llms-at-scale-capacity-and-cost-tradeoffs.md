@@ -82,3 +82,18 @@ If cost variance is untracked, local inference will appear unpredictable and los
 
 ## 12) Final recommendation
 Local inference only scales when reliability and cost governance are treated as first‑class concerns.
+
+
+## 13) Example scaling decision
+A platform team compared API cost vs local cost for 10 million monthly requests. The local stack became cheaper only after 8 million requests and required two additional SREs. This example shows why **volume thresholds** are essential in local vs hosted decisions.
+
+## 14) Risk management plan
+Local inference should have a risk register with owners:
+- capacity shortfall
+- model regression
+- security patch delays
+
+Assign owners and mitigation plans for each.
+
+## 15) Executive summary
+Local LLM operations deliver control but require capital and operational discipline. If you cannot commit to those, a hosted model is safer.

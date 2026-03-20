@@ -71,3 +71,17 @@ This keeps leadership aligned with reliability realities.
 
 ## 11) Final recommendation
 Agent reliability is not optional. It is the foundation for scaling AI workflows safely.
+
+
+## 12) Reliability checklist for production launch
+- [ ] Gold set passes target success rate
+- [ ] Policy violations at zero for critical tools
+- [ ] Budget caps enforced
+- [ ] Rollback tested in staging
+- [ ] On‑call rotation established
+
+## 13) KPI review cadence
+Reliability must be reviewed monthly with leadership. A static launch checklist is insufficient for long‑term stability.
+
+## 14) Executive narrative
+Reliability is the foundation of trust. Without it, AI systems remain pilots, not products.

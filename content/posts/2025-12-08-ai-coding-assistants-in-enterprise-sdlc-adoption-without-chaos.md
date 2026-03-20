@@ -111,3 +111,29 @@ Executives fund programs that show measurable impact.
 
 ## 15) Final recommendation
 Adopt assistants as a governed platform capability. Governance makes productivity sustainable.
+
+
+## 16) Pilot scorecard (sample)
+A credible pilot uses a scorecard with weighted metrics:
+- 30% security and compliance
+- 25% productivity gains
+- 20% quality impact
+- 15% workflow integration fit
+- 10% total cost of ownership
+
+This ensures decisions are not driven by subjective developer preference.
+
+## 17) Post‑pilot controls
+After pilot success, enforce:
+- mandatory code review for AI‑assisted changes
+- heightened security scanning on sensitive repos
+- training refresh every quarter
+
+These controls keep quality stable at scale.
+
+## 18) Governance FAQ
+**Q: Should we allow AI in production hotfixes?**  
+A: Yes, but only with mandatory review and expedited security scanning.
+
+**Q: What if productivity gains are minimal?**  
+A: Re‑evaluate vendor choice or usage patterns; don’t scale blindly.

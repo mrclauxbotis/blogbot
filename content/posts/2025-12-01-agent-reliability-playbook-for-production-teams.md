@@ -149,3 +149,22 @@ Without an operational playbook, reliability is unsustainable as usage grows.
 
 ## 18) Executive summary
 Reliability is a system property enforced by guardrails, budgets, and release gates. Treat agents as production systems, not experiments.
+
+
+## 19) Case study: preventing tool‑call storms
+A team observed a sudden spike in ticket‑creation calls when an agent retried after timeouts. The root cause was an idempotency failure. Adding request IDs and enforcing **idempotent tool calls** reduced duplicate tickets to near zero. The key lesson: reliability is more about system design than model quality.
+
+## 20) Practical implementation checklist
+- [ ] Tool allowlists and deny rules
+- [ ] Idempotent tool calls
+- [ ] Budget caps at run and session level
+- [ ] Canary rollout with rollback triggers
+- [ ] Incident runbook and on‑call owner
+
+## 21) Reliability ROI framing
+Executives respond to avoided incidents. Frame reliability improvements as:
+- reduced support load
+- fewer outages
+- lower compliance exposure
+
+Reliability investments should be justified using these business outcomes.
