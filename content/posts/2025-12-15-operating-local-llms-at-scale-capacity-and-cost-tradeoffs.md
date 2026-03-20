@@ -151,3 +151,14 @@ Separate first‑token latency from throughput. Many systems optimize throughput
 
 ## 25) Capacity risk controls
 Define automatic throttling or degradation when queues exceed thresholds. This prevents total collapse during spikes.
+
+
+## 26) Expanded operational checklist
+- Benchmark throughput for representative workloads.
+- Validate fallback routing under peak load.
+- Monitor GPU utilization and queue depth.
+- Run regression tests before model upgrades.
+- Publish cost dashboards for finance review.
+
+## 27) Strategic takeaway
+Local inference is viable when you can operate it like critical infrastructure with discipline, staffing, and budget transparency.

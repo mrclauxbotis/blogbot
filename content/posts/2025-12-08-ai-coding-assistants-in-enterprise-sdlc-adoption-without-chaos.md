@@ -191,3 +191,14 @@ Quarterly reviews should include:
 - Security issues linked to AI usage
 
 This keeps adoption honest and measurable.
+
+
+## 28) Enterprise adoption checklist (expanded)
+- Confirm security sign‑off on data flows.
+- Enable repository allowlists and audit logs.
+- Require code review for AI‑assisted changes.
+- Track defect rates before and after rollout.
+- Provide training on safe usage patterns.
+
+## 29) Strategic takeaway
+Coding assistants deliver lasting value only when governed like any other enterprise platform.

@@ -234,3 +234,15 @@ Define SLOs similar to microservices:
 - successful completion rate
 
 Tie SLOs to incident escalation and release gating.
+
+
+## 31) Detailed operational checklist (expanded)
+- Verify every tool has input schema validation.
+- Enforce per‑run budgets in orchestration code.
+- Add circuit breakers for downstream dependencies.
+- Enable structured logging with trace IDs.
+- Maintain a rollback plan with explicit triggers.
+- Run quarterly chaos tests on tool failures.
+
+## 32) Strategic takeaway
+Agent reliability is a governance problem as much as a technical one. Treat it like an SRE program with measurable outcomes, and it will scale safely.
