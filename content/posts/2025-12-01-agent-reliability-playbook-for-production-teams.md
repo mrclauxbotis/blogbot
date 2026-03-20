@@ -168,3 +168,19 @@ Executives respond to avoided incidents. Frame reliability improvements as:
 - lower compliance exposure
 
 Reliability investments should be justified using these business outcomes.
+
+
+## 22) Reliability engineering checklist (expanded)
+- Tool allowlists and deny rules
+- Idempotent tool calls
+- Retry budgets with exponential backoff
+- Canary rollout with auto rollback
+- Incident drill schedule
+
+## 23) Cultural adoption
+Reliability depends on culture. Teams must treat agent incidents like production outages. Set expectations early and reward incident prevention, not just feature velocity.
+
+## 24) Roadmap for scale
+Phase 1: stable pilot with hard guardrails.  
+Phase 2: integrate governance into CI/CD.  
+Phase 3: scale to additional workflows with strict KPIs.

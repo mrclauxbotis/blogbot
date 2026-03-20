@@ -137,3 +137,17 @@ A: Yes, but only with mandatory review and expedited security scanning.
 
 **Q: What if productivity gains are minimal?**  
 A: Re‑evaluate vendor choice or usage patterns; don’t scale blindly.
+
+
+## 19) Long‑term governance operations
+Governance must be continuous. Create a quarterly review cycle that evaluates tool impact, policy exceptions, and cost. This avoids “pilot success, production failure.”
+
+## 20) Data retention policy
+Document how AI outputs and prompts are stored. Some vendors retain data; others do not. Ensure the retention policy aligns with legal requirements and internal IP guidelines.
+
+## 21) Engineering leadership checklist
+- Policy training completed
+- Approved repo list enforced
+- CI scanning configured
+- ROI dashboard active
+- Security sign‑off complete

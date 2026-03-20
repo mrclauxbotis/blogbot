@@ -97,3 +97,15 @@ Assign owners and mitigation plans for each.
 
 ## 15) Executive summary
 Local LLM operations deliver control but require capital and operational discipline. If you cannot commit to those, a hosted model is safer.
+
+
+## 16) Capacity governance
+Define an ownership model for capacity decisions. If no one owns capacity planning, outages will appear during demand spikes.
+
+## 17) Operational maturity model
+Stage 1: basic monitoring and manual scaling.  
+Stage 2: automated alerts and standard runbooks.  
+Stage 3: predictive scaling with cost forecasting.
+
+## 18) Executive alignment
+Local inference should be reviewed quarterly with finance. If cost per successful task rises above API benchmarks, revisit the strategy.

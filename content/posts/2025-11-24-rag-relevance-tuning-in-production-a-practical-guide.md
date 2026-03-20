@@ -189,3 +189,27 @@ Use a scorecard with three bands:
 - **Red**: relevance fails on priority intents or compliance workflows
 
 This scorecard allows executives to understand when the system is safe to scale.
+
+
+## 26) Retrieval tuning playbook by failure type
+**Missed retrieval**: increase candidate pool, improve hybrid weights, review chunking boundaries.  
+**Wrong ranking**: introduce reranking or adjust ranking weights.  
+**Source conflict**: apply authority weighting and recency bias.  
+**Context dilution**: reduce top‑k or enforce citation coverage.
+
+This playbook keeps tuning targeted and prevents global over‑optimization.
+
+## 27) Multi‑team operating model
+Large organizations should treat retrieval as a shared platform capability. Suggested ownership:
+- Search team owns retrieval infrastructure and ranking
+- Product teams own intent definitions and acceptance criteria
+- Platform team owns governance and audit
+
+This prevents duplicated tuning efforts across teams.
+
+## 28) Implementation roadmap (12 weeks)
+- Weeks 1–2: gold set, baseline metrics
+- Weeks 3–4: hybrid retrieval, metadata filters
+- Weeks 5–6: reranking and grounding checks
+- Weeks 7–8: executive KPI dashboard
+- Weeks 9–12: stabilization and cost optimization

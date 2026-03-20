@@ -85,3 +85,13 @@ Reliability must be reviewed monthly with leadership. A static launch checklist 
 
 ## 14) Executive narrative
 Reliability is the foundation of trust. Without it, AI systems remain pilots, not products.
+
+
+## 15) Reliability economics
+Executives care about ROI. Tie reliability to savings: fewer escalations, fewer incidents, and reduced support load.
+
+## 16) Monitoring maturity
+Track not just errors, but *near misses*. Near‑miss tracking often predicts failures before they occur.
+
+## 17) Governance enforcement
+Reliability gates should be enforceable in CI/CD. If the system can bypass them, they will eventually be bypassed.
