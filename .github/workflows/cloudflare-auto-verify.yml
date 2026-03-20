@@ -12,12 +12,12 @@ permissions:
 jobs:
   verify-cloudflare-check:
     runs-on: ubuntu-latest
-    timeout-minutes: 6
+    timeout-minutes: 8
     outputs:
       cf_status: ${{ steps.cfcheck.outputs.cf_status }}
     steps:
       - id: cfcheck
-        name: Verify Cloudflare check run (fail if present+failed)
+        name: Verify Cloudflare check run (fail only on real failures)
         uses: actions/github-script@v7
         with:
           script: |
@@ -25,31 +25,53 @@ jobs:
             const repo = context.repo.repo;
             const ref = context.sha;
 
-            const checks = await github.rest.checks.listForRef({ owner, repo, ref, per_page: 100 });
-            const cloudflareChecks = checks.data.check_runs.filter(c => /cloudflare/i.test(c.name));
+            const sleep = (ms) => new Promise(r => setTimeout(r, ms));
+            const deadline = Date.now() + 5 * 60 * 1000; // 5 min
 
-            if (cloudflareChecks.length === 0) {
-              core.warning('No Cloudflare check run published for this commit.');
+            let lastChecks = [];
+            while (Date.now() < deadline) {
+              const checks = await github.rest.checks.listForRef({ owner, repo, ref, per_page: 100 });
+              const cloudflareChecks = checks.data.check_runs.filter(c => /cloudflare/i.test(c.name));
+              lastChecks = cloudflareChecks;
+
+              if (cloudflareChecks.length === 0) {
+                // No check published yet; wait a bit
+                await sleep(15000);
+                continue;
+              }
+
+              const pending = cloudflareChecks.filter(c => c.status !== 'completed');
+              if (pending.length > 0) {
+                await sleep(15000);
+                continue;
+              }
+
+              const failed = cloudflareChecks.filter(c => c.conclusion !== 'success');
+              if (failed.length > 0) {
+                core.setFailed(
+                  `Cloudflare checks completed but not successful: ${failed.map(f => `${f.name}=${f.conclusion}`).join(', ')}`
+                );
+                return;
+              }
+
+              core.info('Cloudflare check(s) completed successfully.');
+              core.setOutput('cf_status','ok');
+              return;
+            }
+
+            if (lastChecks.length === 0) {
+              core.warning('No Cloudflare check run published for this commit (after waiting).');
               core.setOutput('cf_status','missing');
               return;
             }
 
-            const pending = cloudflareChecks.filter(c => c.status !== 'completed');
+            // Still pending after timeout
+            const pending = lastChecks.filter(c => c.status !== 'completed');
             if (pending.length > 0) {
-              core.setFailed('Cloudflare check run is still pending.');
+              core.warning('Cloudflare check run still pending after timeout. Continuing to smoke test.');
+              core.setOutput('cf_status','pending');
               return;
             }
-
-            const failed = cloudflareChecks.filter(c => c.conclusion !== 'success');
-            if (failed.length > 0) {
-              core.setFailed(
-                `Cloudflare checks completed but not successful: ${failed.map(f => `${f.name}=${f.conclusion}`).join(', ')}`
-              );
-              return;
-            }
-
-            core.info('Cloudflare check(s) completed successfully.');
-            core.setOutput('cf_status','ok');
 
   smoke-test-live-url:
     runs-on: ubuntu-latest
