@@ -66,15 +66,44 @@ def next_topic():
     return TOPICS[count % len(TOPICS)]
 
 
+
+
+# Generate a consistent cover image based on the title
+def generate_cover(title: str, slug: str):
+    from pathlib import Path
+    import hashlib, colorsys
+    def hcolor(seed, s=0.25, v=0.92):
+        h=(int(hashlib.md5(seed.encode()).hexdigest()[:6],16)%360)/360.0
+        r,g,b=colorsys.hsv_to_rgb(h,s,v)
+        return f"#{int(r*255):02x}{int(g*255):02x}{int(b*255):02x}"
+    c1=hcolor(title+'a'); c2=hcolor(title+'b'); c3='#f5f7fb'
+    svg=f"""<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='630' viewBox='0 0 1200 630'>
+  <defs>
+    <linearGradient id='bg' x1='0' y1='0' x2='1' y2='1'>
+      <stop offset='0%' stop-color='{c1}'/>
+      <stop offset='100%' stop-color='{c2}'/>
+    </linearGradient>
+  </defs>
+  <rect width='1200' height='630' fill='url(#bg)'/>
+  <rect x='64' y='64' width='1072' height='502' rx='18' fill='{c3}' fill-opacity='0.92'/>
+  <text x='96' y='165' fill='#0f172a' font-family='Arial, Helvetica, sans-serif' font-size='28' font-weight='700'>LLMCraft</text>
+  <foreignObject x='96' y='210' width='980' height='300'>
+    <div xmlns='http://www.w3.org/1999/xhtml' style='font-family:Arial,Helvetica,sans-serif;color:#0f172a;font-size:54px;line-height:1.15;font-weight:800;'>""" + title + """</div>
+  </foreignObject>
+</svg>"""
+    out=Path('/home/dev/workspace/blogbot/static/images/posts')
+    out.mkdir(parents=True, exist_ok=True)
+    (out/f"{slug}-cover.svg").write_text(svg)
+
 def build_post(category, title, date_iso):
     tags = TAGS[category]
     slug = slugify(title)
     dt_full = f"{date_iso}T09:00:00Z"
-    cover = "/images/inference-cost-control-cover.svg"
+    cover = f"/images/posts/{slug}-cover.svg"
 
     body = f'''---
 title: "{title}"
-description: "Executive-grade implementation guide for {title.lower()} with practical architecture, governance controls, and KPI tracking."
+description: "Executive-grade implementation guide with governance, architecture, and KPI-driven decision guidance."
 date: {dt_full}
 lastmod: {dt_full}
 draft: false
@@ -87,44 +116,39 @@ cover:
   alt: "{title}"
 ---
 
-For CTOs, CEOs, Software Architects, and Tech Leads, the priority is not experimentation speed alone. The priority is **predictable delivery**: quality, risk control, and measurable business impact.
+{title} is not just a technical topic; it is an operational and governance decision. This post is written for CTOs, CEOs, software architects, and tech leads who need consistent outcomes, controlled risk, and measurable business value.
 
 ## Executive context
-This topic matters because organizations are moving from isolated pilots to portfolio-level AI operations. That shift requires clear ownership, release governance, and explicit cost-quality tradeoffs.
+Explain why this topic matters to leadership in measurable terms (risk, cost, delivery speed). Identify the business outcome this topic improves.
+
+## Problem definition
+Define the core problem in production terms (reliability, compliance, cost, latency). Provide a real-world framing rather than a theoretical one.
 
 ## Architecture and operating model
-A practical production model should include:
+Provide an architecture view with clear components, ownership boundaries, and critical interfaces. Highlight where control points should be enforced.
 
-1. **Clear ownership** across product, platform, security, and operations
-2. **Policy-enforced execution** (guardrails, approvals, budgets)
-3. **Observability by default** (latency, quality, cost, incidents)
-4. **Rollback-ready releases** (canary strategy + objective gates)
+## Governance and policy controls
+List governance controls that prevent risk: allowlists, approval gates, audit logs, and release policies.
 
-## Leadership KPI set
-Track these metrics weekly:
+## KPI and measurement framework
+Define KPIs that leadership will care about. Include a scorecard or dashboard format.
 
-- Task success rate (business-defined)
-- Escalation rate to human teams
-- Cost per successful outcome
-- p95 response latency
-- Quality regression incidents per release
+## Implementation roadmap (90 days)
+Break down into phases with weekly objectives and measurable outcomes.
 
-## Decision framework for technical leadership
-Use a release gate model:
+## Risks and mitigations
+Outline the top risks and how to mitigate each with technical or process controls.
 
-- **Gate A:** offline quality and policy checks
-- **Gate B:** staging integration and tool reliability
-- **Gate C:** production canary with rollback triggers
+## Practical checklist
+Include a checklist to drive implementation discipline.
 
-If any gate fails, block rollout.
-
-## Official documentation references
+## Official references
 - OpenAI docs: https://platform.openai.com/docs
-- Cloudflare Workers docs: https://developers.cloudflare.com/workers/
 - OpenTelemetry docs: https://opentelemetry.io/docs/
+- Cloudflare Workers docs: https://developers.cloudflare.com/workers/
 
-## Recommendation
-Treat AI delivery as an engineering system with product accountability. Teams that standardize gates, metrics, and ownership scale faster with fewer incidents.
+## Final recommendation
+Summarize the strategic guidance in 3–5 sentences, framed for executives.
 '''
     return slug, body
 
@@ -138,6 +162,12 @@ def main():
     fname = f"{monday.isoformat()}-{slug}.md"
     out = POSTS / fname
     out.write_text(content, encoding='utf-8')
+    # Word count check (soft enforcement)
+    import re
+    wc = len(re.findall(r"\b\w+\b", content))
+    if wc < 1200 or wc > 1800:
+        print(f"WARNING: Generated post word count {wc} outside 1200-1800 range")
+
 
     subprocess.run(['git', '-C', str(ROOT), 'add', str(out)], check=True)
     subprocess.run(['git', '-C', str(ROOT), 'commit', '-m', f'content(auto): add recurring post {fname}'], check=True)
