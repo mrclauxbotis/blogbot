@@ -105,3 +105,47 @@ Version policies and test them. Treat policy rules like production code.
 ## 15) Executive FAQs
 **Why not fully automate?** Because accountability demands staged automation.  
 **When do we scale?** When KPIs stay stable for 30+ days.
+
+
+## 13) Reliability architecture patterns
+Reliable agent systems are built on:
+- **State machine orchestration** with explicit transitions
+- **Idempotent tool calls** to prevent duplicate side effects
+- **Circuit breakers** when dependencies fail
+
+These patterns reduce cascading failures and make outages recoverable.
+
+## 14) Safety and compliance integration
+Safety is not a downstream check. Embed safety policy enforcement before any high‑risk action. This includes:
+- input validation
+- policy guardrails
+- human approval gates
+
+This is the core control that executives expect for regulated workflows.
+
+## 15) Cost and latency governance
+Track cost per successful task and latency p95 by workflow. If cost grows faster than success rate, investigate:
+- excessive retries
+- inefficient tool selection
+- over‑retrieval of context
+
+## 16) Reliability scorecard
+A monthly reliability scorecard should include:
+- success rate by workflow
+- escalation rate trend
+- incident frequency
+- cost per resolution
+
+This connects reliability directly to business outcomes.
+
+## 17) Operational playbook
+Define an operational playbook that includes:
+- incident severity tiers
+- rollback triggers
+- on‑call ownership
+- post‑incident review cadence
+
+Without an operational playbook, reliability is unsustainable as usage grows.
+
+## 18) Executive summary
+Reliability is a system property enforced by guardrails, budgets, and release gates. Treat agents as production systems, not experiments.

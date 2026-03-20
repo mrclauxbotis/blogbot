@@ -131,3 +131,49 @@ Hold a monthly review with product and support to validate that retrieval improv
 
 ## 16) Change management
 Document changes to retrieval settings and require review approval for high‑impact modifications. This prevents accidental regressions.
+
+
+## 17) Executive‑grade diagnostic workflow
+A production relevance program needs a repeatable workflow with owners. A practical structure:
+
+1. **Weekly triage**: review top‑10 failed queries and classify failure types.
+2. **Root‑cause analysis**: determine whether failure is retrieval, ranking, or grounding.
+3. **Fix assignment**: route to the appropriate owner (data ingestion, retrieval, rerank, or policy).
+4. **Validation**: rerun gold set and confirm KPI change.
+
+This process is simple but powerful. Without it, relevance problems recur and teams lose trust in the system.
+
+## 18) Data pipeline governance
+Relevance is only as good as the underlying data. Define strict rules for ingestion:
+
+- **Freshness SLAs** for high‑impact documents
+- **Deduplication policies** to avoid noisy overlap
+- **Source priority rules** (official > internal > community)
+- **Change‑detection alerts** for critical documents
+
+For CTOs, this turns content into an asset with service‑level expectations.
+
+## 19) Query intent routing
+If you treat all queries the same, relevance suffers. Add intent routing for:
+- Policy vs API vs troubleshooting
+- Internal vs external user segments
+- High‑risk vs low‑risk workflows
+
+Routing makes retrieval strategies more precise and prevents low‑risk queries from consuming expensive relevance budgets.
+
+## 20) Model selection strategy
+Use **separate models** for embedding, reranking, and generation where possible. This gives you flexibility: you can upgrade reranking without touching generation, or tune embedding without destabilizing the answer model. Leadership benefits from modular risk control.
+
+## 21) KPI baselines and budget thresholds
+Define explicit thresholds:
+- Recall@k target
+- Minimum citation coverage
+- Cost per query ceiling
+
+If relevance improves but cost exceeds budget, the system has failed. A relevance program is only acceptable if it respects cost constraints.
+
+## 22) Change management and risk control
+Every change to retrieval should be reviewed. In regulated domains, require sign‑off by compliance or product owners. This reduces “silent regressions” that show up only after users complain.
+
+## 23) Executive summary
+Relevance tuning is not a one‑off optimization. It is a discipline combining data governance, retrieval strategy, and business KPIs. Organizations that treat it as an ongoing program see stable accuracy and cost control at scale.

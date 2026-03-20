@@ -53,3 +53,21 @@ Tie reliability outcomes to release approval. If KPIs drift, release is blocked.
 
 ## 10) Training and culture
 Train teams on failure taxonomy and safe operations. Culture change reduces repeat incidents.
+
+
+## 8) Incident readiness
+Production agents should have defined incident severity tiers. Use clear rollback triggers and incident command roles to reduce downtime.
+
+## 9) Governance integration
+Tie agent reliability KPIs to release approvals. If metrics drift, release should stop automatically.
+
+## 10) Executive metrics
+Report:
+- incident trend
+- escalation rate
+- cost per successful task
+
+This keeps leadership aligned with reliability realities.
+
+## 11) Final recommendation
+Agent reliability is not optional. It is the foundation for scaling AI workflows safely.

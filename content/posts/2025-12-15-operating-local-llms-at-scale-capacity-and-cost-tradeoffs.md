@@ -55,3 +55,30 @@ Define freeze windows for critical business periods. This reduces risk during pe
 
 ## 10) Vendor and supply chain risk
 Secure GPU supply contracts early. Capacity delays are the fastest way to miss SLOs.
+
+
+## 8) Reliability strategy
+Define explicit SLOs for p95 latency and availability. Build capacity to satisfy peak demand, not average load. Without buffers, local systems collapse under surge traffic.
+
+## 9) Observability program
+Track:
+- GPU utilization
+- queue depth
+- OOM events
+- token throughput
+
+Observability provides early warning for instability.
+
+## 10) Change management
+Treat model updates like production releases. Run regression tests and maintain rollback paths. This prevents sudden quality regressions.
+
+## 11) Executive cost framework
+Leadership should see:
+- cost per successful task
+- cost per 1k requests
+- forecast vs actual variance
+
+If cost variance is untracked, local inference will appear unpredictable and lose executive support.
+
+## 12) Final recommendation
+Local inference only scales when reliability and cost governance are treated as first‑class concerns.
