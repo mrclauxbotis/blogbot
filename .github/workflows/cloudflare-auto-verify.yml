@@ -13,8 +13,11 @@ jobs:
   verify-cloudflare-check:
     runs-on: ubuntu-latest
     timeout-minutes: 6
+    outputs:
+      cf_status: ${{ steps.cfcheck.outputs.cf_status }}
     steps:
-      - name: Verify Cloudflare check run (required if present)
+      - id: cfcheck
+        name: Verify Cloudflare check run (fail if present+failed)
         uses: actions/github-script@v7
         with:
           script: |
@@ -27,6 +30,7 @@ jobs:
 
             if (cloudflareChecks.length === 0) {
               core.warning('No Cloudflare check run published for this commit.');
+              core.setOutput('cf_status','missing');
               return;
             }
 
@@ -45,10 +49,12 @@ jobs:
             }
 
             core.info('Cloudflare check(s) completed successfully.');
+            core.setOutput('cf_status','ok');
 
   smoke-test-live-url:
     runs-on: ubuntu-latest
     needs: verify-cloudflare-check
+    if: always()
     timeout-minutes: 8
     env:
       BLOG_URL: https://blog.jidokacommunity.org
