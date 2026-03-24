@@ -162,11 +162,11 @@ def main():
     fname = f"{monday.isoformat()}-{slug}.md"
     out = POSTS / fname
     out.write_text(content, encoding='utf-8')
-    # Word count check (soft enforcement)
+    # Word count enforcement (hard)
     import re
     wc = len(re.findall(r"\b\w+\b", content))
     if wc < 1200 or wc > 1800:
-        print(f"WARNING: Generated post word count {wc} outside 1200-1800 range")
+        raise RuntimeError(f"Generated post word count {wc} outside 1200-1800 range")
 
 
     subprocess.run(['git', '-C', str(ROOT), 'add', str(out)], check=True)
