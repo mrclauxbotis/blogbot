@@ -8,19 +8,76 @@ ROOT = Path('/home/dev/workspace/blogbot')
 POSTS = ROOT / 'content' / 'posts'
 
 TOPICS = [
-    ("AI Agents", "Agent Reliability Playbook for Production Teams"),
-    ("RAG & Vector Search", "RAG Relevance Tuning in Production: A Practical Guide"),
-    ("AI Platform & MLOps", "LLM Platform Governance: Controls CTOs Should Standardize"),
-    ("Local LLMs", "Operating Local LLMs at Scale: Capacity and Cost Tradeoffs"),
-    ("AI Coding Tools", "AI Coding Assistants in Enterprise SDLC: Adoption Without Chaos"),
+    # Domain 1: Agentic Architecture & Orchestration
+    ("Agentic Architecture", "Building Production Agentic Loops: stop_reason, Tool Execution, and Loop Control"),
+    ("Multi-Agent Systems", "Coordinator-Subagent Patterns: Designing Hub-and-Spoke Agent Orchestration"),
+    ("Agent Workflows", "Programmatic Enforcement vs Prompt Guidance: When LLM Compliance Isn't Enough"),
+    ("Agent SDK Hooks", "Intercepting Tool Calls with Agent SDK Hooks: Data Normalization and Policy Gates"),
+    ("Task Decomposition", "Prompt Chaining vs Dynamic Decomposition: Choosing the Right Workflow Pattern"),
+    ("Session Management", "Session Resumption, Forking, and State Recovery in Long-Running Agents"),
+
+    # Domain 2: Tool Design & MCP Integration
+    ("MCP Tools", "Designing MCP Tool Interfaces That LLMs Actually Select Correctly"),
+    ("MCP Error Handling", "Structured Error Responses for MCP Tools: Beyond 'Operation Failed'"),
+    ("Tool Distribution", "Tool Overload Is Real: Scoping Agent Tool Access for Reliable Selection"),
+    ("MCP Configuration", "MCP Server Scoping in Claude Code: Project vs User Level Configuration"),
+    ("Built-in Tools", "Grep vs Glob vs Read: Selecting the Right Built-in Tool for Codebase Exploration"),
+
+    # Domain 3: Claude Code Configuration & Workflows
+    ("Claude Code Config", "CLAUDE.md Hierarchy Deep Dive: User, Project, and Directory-Level Configuration"),
+    ("Claude Code Skills", "Custom Slash Commands and Skills: context:fork, allowed-tools, and Isolation"),
+    ("Path-Specific Rules", "Glob-Pattern Rules in .claude/rules/: Conditional Convention Loading That Scales"),
+    ("Plan Mode", "Plan Mode vs Direct Execution: A Decision Framework for Claude Code Tasks"),
+    ("CI/CD Integration", "Claude Code in CI/CD Pipelines: Non-Interactive Mode, JSON Output, and PR Reviews"),
+    ("Iterative Refinement", "Test-Driven Iteration with Claude Code: The Interview Pattern and Beyond"),
+
+    # Domain 4: Prompt Engineering & Structured Output
+    ("Prompt Precision", "Explicit Criteria Over Vague Instructions: Reducing False Positives in LLM Reviews"),
+    ("Few-Shot Prompting", "Few-Shot Examples That Generalize: Targeting Ambiguity, Not Just Format"),
+    ("Structured Output", "Guaranteed Schema Compliance with tool_use: JSON Schemas and tool_choice Patterns"),
+    ("Validation Loops", "Retry-with-Feedback Loops: When Retries Work and When They Never Will"),
+    ("Batch Processing", "Message Batches API: 50% Cost Savings and When NOT to Use It"),
+    ("Multi-Pass Review", "Independent Review Instances Beat Self-Review: Multi-Pass Architectures for Code"),
+
+    # Domain 5: Context Management & Reliability
+    ("Context Management", "Lost in the Middle: Managing Context Windows Across Long Agent Interactions"),
+    ("Escalation Patterns", "Escalation Calibration: Why Sentiment Scores and Confidence Are Unreliable Proxies"),
+    ("Error Propagation", "Error Propagation in Multi-Agent Systems: Structured Context for Coordinator Recovery"),
+    ("Codebase Exploration", "Context Degradation in Extended Sessions: Scratchpads, Subagents, and /compact"),
+    ("Human Review", "Confidence Calibration and Stratified Sampling: Designing Human Review Workflows"),
+    ("Information Provenance", "Preserving Source Attribution Through Multi-Agent Synthesis Pipelines"),
 ]
 
 TAGS = {
-    "AI Agents": ["ai agents", "reliability", "production", "architecture"],
-    "RAG & Vector Search": ["rag", "retrieval", "vector search", "evaluation"],
-    "AI Platform & MLOps": ["mlops", "llmops", "governance", "platform"],
-    "Local LLMs": ["local llm", "inference", "ollama", "performance"],
-    "AI Coding Tools": ["copilot", "cursor", "developer productivity", "governance"],
+    "Agentic Architecture": ["agentic loops", "stop_reason", "tool execution", "claude agent sdk", "loop control"],
+    "Multi-Agent Systems": ["multi-agent", "coordinator", "subagent", "hub-and-spoke", "orchestration"],
+    "Agent Workflows": ["programmatic enforcement", "hooks", "prerequisites", "workflow ordering", "handoff"],
+    "Agent SDK Hooks": ["PostToolUse", "tool interception", "data normalization", "policy enforcement", "hooks"],
+    "Task Decomposition": ["prompt chaining", "dynamic decomposition", "task planning", "code review"],
+    "Session Management": ["session resumption", "fork_session", "state persistence", "crash recovery"],
+    "MCP Tools": ["mcp", "tool descriptions", "tool selection", "tool design", "model context protocol"],
+    "MCP Error Handling": ["isError", "error categories", "retryable", "structured errors", "mcp"],
+    "Tool Distribution": ["tool_choice", "scoped tools", "allowedTools", "agent specialization"],
+    "MCP Configuration": [".mcp.json", "environment variables", "mcp servers", "project scope", "user scope"],
+    "Built-in Tools": ["grep", "glob", "read", "write", "edit", "bash", "codebase exploration"],
+    "Claude Code Config": ["CLAUDE.md", "configuration hierarchy", "@import", ".claude/rules/", "claude code"],
+    "Claude Code Skills": ["slash commands", "skills", "context:fork", "allowed-tools", "argument-hint"],
+    "Path-Specific Rules": ["glob patterns", "YAML frontmatter", "conditional rules", "path scoping"],
+    "Plan Mode": ["plan mode", "direct execution", "explore subagent", "architectural decisions", "claude code"],
+    "CI/CD Integration": ["ci/cd", "-p flag", "--output-format json", "pr review", "non-interactive mode"],
+    "Iterative Refinement": ["test-driven", "interview pattern", "input/output examples", "progressive improvement"],
+    "Prompt Precision": ["explicit criteria", "false positives", "review precision", "severity classification"],
+    "Few-Shot Prompting": ["few-shot", "examples", "ambiguity", "generalization", "output consistency"],
+    "Structured Output": ["tool_use", "json schema", "tool_choice", "structured extraction", "schema design"],
+    "Validation Loops": ["retry", "validation", "feedback loops", "self-correction", "pydantic"],
+    "Batch Processing": ["message batches api", "custom_id", "cost optimization", "latency tolerance"],
+    "Multi-Pass Review": ["self-review", "independent instances", "multi-pass", "attention dilution", "code review"],
+    "Context Management": ["context window", "token budget", "progressive summarization", "lost in the middle"],
+    "Escalation Patterns": ["escalation", "human-in-the-loop", "ambiguity resolution", "customer support"],
+    "Error Propagation": ["error propagation", "partial results", "coordinator recovery", "multi-agent errors"],
+    "Codebase Exploration": ["context degradation", "scratchpad", "/compact", "subagent delegation"],
+    "Human Review": ["confidence calibration", "stratified sampling", "human review", "accuracy segmentation"],
+    "Information Provenance": ["source attribution", "claim-source mapping", "temporal data", "conflict annotation"],
 }
 
 
